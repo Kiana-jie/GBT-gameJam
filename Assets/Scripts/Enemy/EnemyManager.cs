@@ -27,7 +27,8 @@ public class EnemyManager : MonoBehaviour
             Random.Range(spawnAreaMin.x, spawnAreaMax.x),
             Random.Range(spawnAreaMin.y, spawnAreaMax.y)
         );
-
+        //给玩家提示信息哪里会出怪
+        
         GameObject enemy = Instantiate(enemyPool[Random.Range(0, enemyPool.Length)], spawnPos, Quaternion.identity);
     }
 
