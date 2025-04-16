@@ -28,9 +28,9 @@ public abstract class Enemy:MonoBehaviour
         
     }
 
-    public void Move()
+    public void Move(Vector2 targetPos)
     {
-        
+        transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
     }
 
     public void HandleAttack()
