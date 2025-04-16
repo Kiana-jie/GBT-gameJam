@@ -16,13 +16,14 @@ public abstract class Enemy:MonoBehaviour
     public float speed;
     public float attackRange;
 
-    public Transform player1;
-    public Transform player2;
+    private GameObject []players;
+    
 
     protected Transform target;
 
     private void Start()
     {
+        players = GameObject.FindGameObjectsWithTag("Player");
         SearchTarget();
     }
 
@@ -49,10 +50,12 @@ public abstract class Enemy:MonoBehaviour
     //只执行一次
     public void SearchTarget()
     {
-        if(player1 == null || player2 == null ) { return; }
-        float dis1 = Vector2.Distance(transform.position, player1.position);
-        float dis2 = Vector2.Distance(transform.position, player2.position);
-        target = (dis1 <= dis2 ? player1 : player2);    
+       if(players.Length == 0) { return; }
+       if(players.Length == 1) { target = players[0].transform; return; }
+
+        float dis1 = Vector2.Distance(transform.position, players[0].transform.position);
+        float dis2 = Vector2.Distance(transform.position, players[1].transform.position);
+        target = (dis1 <= dis2 ? players[0].transform : players[1].transform);    
     }
 
     public void Move(Vector2 targetPos)

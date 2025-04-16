@@ -5,8 +5,10 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour
 {
     public GameObject[] enemyPool;           // 敌人预制体数组
+    public GameObject warningPrefab;
     public float produceTime = 3f;      // 生成间隔
     private float timer = 0f;
+    public int enemyPerWave;
 
     public Vector2 spawnAreaMin;        // 生成区域左下角
     public Vector2 spawnAreaMax;        // 生成区域右上角
@@ -17,21 +19,62 @@ public class EnemyManager : MonoBehaviour
         if (timer > produceTime)
         {
             timer = 0;
-            Produce();
+            StartCoroutine(Produce());
         }
     }
 
-    public void Produce()
+    IEnumerator Produce()
     {
-        Vector2 spawnPos = new Vector2(
+        enemyPerWave = Random.Range(1, 5);
+        for(int i = 0; i < enemyPerWave; i++)
+        {
+            Vector2 spawnPos = new Vector2(
             Random.Range(spawnAreaMin.x, spawnAreaMax.x),
             Random.Range(spawnAreaMin.y, spawnAreaMax.y)
         );
+            StartCoroutine(Warning(spawnPos));
+            
+        }
+        yield break;
+    }
+    IEnumerator Warning(Vector2 spawnPos)
+    {
         //给玩家提示信息哪里会出怪
-        
+        GameObject warning = Instantiate(warningPrefab, spawnPos, Quaternion.identity);
+        SpriteRenderer sr = warning.GetComponent<SpriteRenderer>();
+
+        int flashTimes = 2;
+        float fadeTime = 0.5f;
+
+        for (int i = 0; i < flashTimes; i++)
+        {
+            float timer = 0;
+            while (timer < fadeTime)
+            {
+                float alpha = timer / fadeTime;
+                sr.color = new Color(1f, 1f, 1f, alpha);
+                timer += Time.deltaTime;
+                yield return null;
+            }
+
+            sr.color = new Color(1f, 1f, 1f, 1f);
+            yield return new WaitForSeconds(0.1f);
+
+            timer = 0;
+            while (timer < fadeTime)
+            {
+                float alpha = 1 - timer / fadeTime;
+                sr.color = new Color(1f, 1f, 1f, alpha);
+                timer += Time.deltaTime;
+                yield return null;
+            }
+
+            sr.color = new Color(1f, 1f, 1f, 0);
+        }
+        Destroy(warning);
+
         GameObject enemy = Instantiate(enemyPool[Random.Range(0, enemyPool.Length)], spawnPos, Quaternion.identity);
     }
-
     // 可视化生成区域
     private void OnDrawGizmosSelected()
     {
