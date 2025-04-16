@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerStatus : MonoBehaviour
 {
-    public int health;
+    //public int health;
     public int attackForce;
     public int defenceForce;
     public float speed;

@@ -10,6 +10,7 @@ public class PlayerControllerForPlayer2 : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 InputDirection;
     private PlayerStatus status;
+    
     // Start is called before the first frame update
     private void Awake()
     {
