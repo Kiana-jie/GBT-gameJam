@@ -71,6 +71,7 @@ public abstract class Enemy:MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
+        Debug.Log($"{name} took {damage} damage. Remaining: {health}");
         if (health <= 0) 
         {
             Die();

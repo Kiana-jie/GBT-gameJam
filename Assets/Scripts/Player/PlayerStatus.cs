@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class PlayerStatus : MonoBehaviour
 {
@@ -12,4 +13,12 @@ public class PlayerStatus : MonoBehaviour
     private float attackRate;
 
     //数值结算：角色自身属性 + 加成 + 武器属性
+    
+
+    private void Update()
+    {
+        
+    }
+
+    
 }

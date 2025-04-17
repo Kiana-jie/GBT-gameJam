@@ -8,7 +8,7 @@ public class EnemyManager : MonoBehaviour
     public GameObject warningPrefab;
     public float produceTime = 3f;      // 生成间隔
     private float timer = 0f;
-    public int enemyPerWave;
+    private int enemyPerWave;
 
     public Vector2 spawnAreaMin;        // 生成区域左下角
     public Vector2 spawnAreaMax;        // 生成区域右上角
