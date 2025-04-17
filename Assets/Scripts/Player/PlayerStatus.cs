@@ -10,4 +10,6 @@ public class PlayerStatus : MonoBehaviour
     public float speed;
     public float attackSpeed;
     private float attackRate;
+
+    //数值结算：角色自身属性 + 加成 + 武器属性
 }
