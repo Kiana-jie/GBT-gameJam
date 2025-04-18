@@ -17,7 +17,7 @@ public abstract class Enemy:MonoBehaviour
     public float attackRange;
 
     private GameObject []players;
-    
+    private Rigidbody2D rb;
 
     protected Transform target;
 
@@ -25,6 +25,7 @@ public abstract class Enemy:MonoBehaviour
     {
         players = GameObject.FindGameObjectsWithTag("Player");
         SearchTarget();
+        rb = gameObject.GetComponent<Rigidbody2D>();
     }
 
     private void FixedUpdate()
@@ -37,6 +38,12 @@ public abstract class Enemy:MonoBehaviour
         else
         {
             Move(target.position);
+        }
+
+        if(rb.velocity != Vector2.zero)
+        {
+            RecoverSpeed();
+               
         }
         
     }
@@ -84,4 +91,8 @@ public abstract class Enemy:MonoBehaviour
     }
     public abstract void Attack();
     
+    public void RecoverSpeed()
+    {
+        rb.velocity = new Vector2(Mathf.Lerp(rb.velocity.x, 0, 0.1f), Mathf.Lerp(rb.velocity.y, 0, 0.1f));
+    }
 }

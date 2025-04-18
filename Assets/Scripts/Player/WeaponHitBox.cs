@@ -1,9 +1,11 @@
+using System.Collections;
 using UnityEngine;
 
 public class WeaponHitBox : MonoBehaviour
 {
     public int damage = 10;
     public float knockbackForce = 5f;
+    public float recoverTime = 0.01f;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -22,7 +24,12 @@ public class WeaponHitBox : MonoBehaviour
             if (rb != null)
             {
                 rb.AddForce(knockDir * knockbackForce, ForceMode2D.Impulse);
+               
             }
-        }
+
+            
+        }  
     }
+
+    
 }

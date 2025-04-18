@@ -76,6 +76,7 @@ public class WeaponController : MonoBehaviour
 
         // ªÿ¿¥
         timer = 0f;
+        if (weaponCollider != null) weaponCollider.enabled = false;
         while (timer < stabDuration)
         {
             weaponTransform.localPosition = Vector2.Lerp(targetLocalPos, originalPos, timer / stabDuration);
@@ -86,7 +87,7 @@ public class WeaponController : MonoBehaviour
         weaponTransform.localPosition = originalPos;
 
         // Ω˚”√≈ˆ◊≤∆˜
-        if (weaponCollider != null) weaponCollider.enabled = false;
+        
     }
 
 
