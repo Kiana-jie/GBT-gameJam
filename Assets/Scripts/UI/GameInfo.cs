@@ -1,18 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class GameInfo : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static GameInfo Instance;
+    public TextMeshProUGUI _countDown;
+    public TextMeshProUGUI _waveCount;
+    private void Awake()
     {
+        Instance = this;
         
     }
 
-    // Update is called once per frame
-    void Update()
+    //更新倒计时
+    public void CountDownUpdate(float timer)
     {
-        
+        _countDown.text = ((int)timer).ToString();
+    }
+
+    public void WaveCountUpdate()
+    {
+        _waveCount.text = "Wave " + GameManager.Instance.currentWave;
     }
 }

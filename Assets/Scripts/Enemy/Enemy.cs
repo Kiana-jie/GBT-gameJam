@@ -14,28 +14,35 @@ public abstract class Enemy:MonoBehaviour
     public int health;
     public int damage;
     public float speed;
-    public float attackRange;
+    public float attackRange; //范围
+    public float attackTime;    //攻击间隔
+    public float attackTimer = 0;   //计时器
+    public bool isCooling = false;      //攻击冷却
+    public int providedExp = 1;
 
     private GameObject []players;
     private Rigidbody2D rb;
 
     protected Transform target;
 
+    public GameObject moneyPrefab;
+
+    private PlayerStatus lastAttacker;
+
+    
+
     private void Start()
     {
         players = GameObject.FindGameObjectsWithTag("Player");
         SearchTarget();
         rb = gameObject.GetComponent<Rigidbody2D>();
+        moneyPrefab = (GameObject)Resources.Load("Prefabs/money");
     }
 
     private void FixedUpdate()
     {
         
-        if(Vector2.Distance(transform.position, target.position) <= attackRange)
-        {
-            HandleAttack();
-        }
-        else
+        if(Vector2.Distance(transform.position, target.position) >= attackRange)
         {
             Move(target.position);
         }
@@ -46,6 +53,19 @@ public abstract class Enemy:MonoBehaviour
                
         }
         
+    }
+
+    private void Update()
+    {
+        if(isCooling)
+        {
+            attackTimer -= Time.deltaTime;
+            if(attackTimer <= 0)
+            {
+                attackTimer = 0;
+                isCooling = false;
+            }
+        }
     }
     /*
      追击：
@@ -68,16 +88,16 @@ public abstract class Enemy:MonoBehaviour
     public void Move(Vector2 targetPos)
     {
         transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
+        TurnAround();
     }
 
-    public void HandleAttack()
-    {
-        Attack();
-    }
+    public abstract void HandleAttack();
+    
 
     public void TakeDamage(int damage)
     {
         health -= damage;
+       
         Debug.Log($"{name} took {damage} damage. Remaining: {health}");
         if (health <= 0) 
         {
@@ -87,12 +107,37 @@ public abstract class Enemy:MonoBehaviour
 
     public void Die()
     {
+       GameObject.Instantiate(moneyPrefab, transform.position, Quaternion.identity);
+
+        //提供经验
+        foreach(var player in players)
+        {
+            PlayerStatus status = player.GetComponent<PlayerStatus>();
+            status.currentExp += providedExp;
+            status.LevelUp();
+            PlayerInfo.Instance.ExpUpdate();
+        }
        Destroy(gameObject);
     }
-    public abstract void Attack();
+    public abstract void Attack(GameObject target);
     
     public void RecoverSpeed()
     {
         rb.velocity = new Vector2(Mathf.Lerp(rb.velocity.x, 0, 0.1f), Mathf.Lerp(rb.velocity.y, 0, 0.1f));
+    }
+
+    //自动转向
+    public void TurnAround()
+    {
+        //玩家在怪物右边
+        if(target.transform.position.x - transform.position.x >= 0 )
+        {
+            //向右
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x),transform.localScale.y,transform.localScale.z);
+        } else if(target.transform.position.x - transform.position.x < 0 )
+            //向左
+        {
+            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+        }
     }
 }

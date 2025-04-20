@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
+    public static EnemyManager instance;
     public GameObject[] enemyPool;           // 敌人预制体数组
     public GameObject warningPrefab;
     public float produceTime = 3f;      // 生成间隔
@@ -13,6 +14,10 @@ public class EnemyManager : MonoBehaviour
     public Vector2 spawnAreaMin;        // 生成区域左下角
     public Vector2 spawnAreaMax;        // 生成区域右上角
 
+    private void Awake()
+    {
+        instance = this;
+    }
     void Update()
     {
         timer += Time.deltaTime;
@@ -74,6 +79,14 @@ public class EnemyManager : MonoBehaviour
         Destroy(warning);
 
         GameObject enemy = Instantiate(enemyPool[Random.Range(0, enemyPool.Length)], spawnPos, Quaternion.identity);
+    }
+
+    public void DestroyAllEnemies()
+    {
+        foreach(var enemy in GameObject.FindGameObjectsWithTag("Enemy"))
+        {
+            Destroy(enemy);
+        }
     }
     // 可视化生成区域
     private void OnDrawGizmosSelected()
