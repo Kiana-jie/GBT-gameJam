@@ -87,6 +87,10 @@ public class EnemyManager : MonoBehaviour
         {
             Destroy(enemy);
         }
+        foreach(var warning in GameObject.FindGameObjectsWithTag("Warning"))
+        {
+            Destroy(warning);
+        }
     }
     // 可视化生成区域
     private void OnDrawGizmosSelected()

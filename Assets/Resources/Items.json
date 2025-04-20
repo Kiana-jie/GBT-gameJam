@@ -1,0 +1,63 @@
+[
+  //远程武器模板
+  {
+    "Id": 1,
+    "Name": "星星魔杖",
+    "ItemType": 1,
+    "Quility": 0,
+    "Price": 20,
+    "Description": "ħ������������",
+    "PrefabPath": "Prefabs/Items/StarMagicStick",
+    "WeaponType": 1,
+    "Damage": 10
+  },
+  //近战武器模板
+  {
+    "Id": 2,
+    "Name": "树枝",
+    "ItemType": 1,
+    "Quility": 0,
+    "Price": 20,
+    "Description": "��еΪ����",
+    "PrefabPath": "Prefabs/Items/Stick",
+    "WeaponType": 0,
+    "Damage": 10
+  },
+  //属性词条模板
+  {
+    "Id": 3,
+    "Name": "增加血量",
+    "ItemType": 0,
+    "Quility": 0,
+    "Price": 20,
+    "Description": "属性提升！",
+    "PrefabPath": "Prefabs/Items/HealthWord",
+    "Health": 5,
+    "AttackForce": 0,
+    "DefenseForce": 0
+  },
+  {
+    "Id": 4,
+    "Name": "增加攻击",
+    "ItemType": 0,
+    "Quility": 0,
+    "Price": 20,
+    "Description": "属性提升！",
+    "PrefabPath": "Prefabs/Items/AttackWord",
+    "Health": 0,
+    "AttackForce": 5,
+    "DefenseForce": 0
+  },
+  {
+    "Id": 5,
+    "Name": "增加防御",
+    "ItemType": 0,
+    "Quility": 0,
+    "Price": 20,
+    "Description": "属性提升！",
+    "PrefabPath": "Prefabs/Items/DefenseWord",
+    "Health": 0,
+    "AttackForce": 0,
+    "DefenseForce": 5
+  }
+]

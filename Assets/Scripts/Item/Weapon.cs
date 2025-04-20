@@ -1,19 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Weapon : Equipment
+public enum WeaponType
 {
-    public EquipType Type {  get;  set; }
-    public int Grade {  get; set; }
+    melee,
+    ranged
+}
+public class Weapon : Item
+{
+     
+
+    public WeaponType type;
     public int Damage { get; set; }
     
-    public Weapon (int id,string name,int price,string description,string sprite,EquipType type,int grade,int damage): base(id,name,price,description,sprite)
+    public Weapon (int id,string name, ItemType type, Quility quility,int price,string description,string prefabPath,WeaponType weapontype,int damage): base(id,name,type,quility,price,description,prefabPath)
     {
-        Type = type;
-        Grade = grade;
+        this.type = weapontype;
         Damage = damage;
     }
 
+    public Weapon() { }
     
 }
