@@ -49,7 +49,7 @@ public class SceneController : MonoBehaviour
     }
 
     // 协程，将折叠线移动到任意位置，并旋转到任意角度，虽然暂时不用但是以后可以拿来玩
-    public IEnumerator MoveWall(Vector3 targetPosition, Quaternion targetRotation, float duration)
+    private IEnumerator MoveWall(Vector3 targetPosition, Quaternion targetRotation, float duration)
     {
         Vector3 startPosition = wall.transform.position;
         Quaternion startRotation = wall.transform.rotation;
@@ -59,7 +59,7 @@ public class SceneController : MonoBehaviour
         {
             float t = time / duration;
             wall.transform.position = Vector3.Lerp(startPosition, targetPosition, t);
-            wall.transform.rotation = Quaternion.Lerp(startRotation, targetRotation, t);
+            wall.transform.rotation = Quaternion.Slerp(startRotation, targetRotation, t);
             time += Time.deltaTime;
             yield return null;
         }
