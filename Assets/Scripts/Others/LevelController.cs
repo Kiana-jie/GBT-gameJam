@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,11 +8,16 @@ public class LevelController : MonoBehaviour
     public static LevelController Instance;
     public float waveTimer;
     private bool waveCompleted = false;
-
+    
     private void Awake()
     {
+       
         Instance = this;
+       
     }
+
+    
+
     // Start is called before the first frame update
     void Start()
     {  

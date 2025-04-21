@@ -7,9 +7,14 @@ public class Inventory : MonoBehaviour
     public List<Slot> slotList = new List<Slot>();
     public CanvasGroup canvasGroup;
     // Start is called before the first frame update
-    public virtual void Start()
+
+    private void Awake()
     {
         slotList.AddRange(GetComponentsInChildren<Slot>());//可能有bug
+        
+    }
+    public virtual void Start()
+    {
         canvasGroup = GetComponent<CanvasGroup>();
         //初始不启用
         if (canvasGroup != null)

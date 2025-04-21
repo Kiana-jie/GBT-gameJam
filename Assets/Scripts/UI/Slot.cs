@@ -22,8 +22,8 @@ public class Slot : MonoBehaviour
     }
     public void StoreItem(Item item)
     {
-       
-        
+
+        Debug.Log("!");
         {
             itemPrefab = item.itemPrefab;
             GameObject itemGameObject = Instantiate(itemPrefab);

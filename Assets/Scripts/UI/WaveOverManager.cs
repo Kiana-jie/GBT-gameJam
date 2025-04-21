@@ -36,7 +36,10 @@ public class WaveOverManager : MonoBehaviour
         playerPanel.SetActive(false);
         exitButton.SetActive(false);
         continueButton.SetActive(false);
-        
+
+        // 在第一轮结束时初始化玩家装备
+        if(GameManager.Instance.currentWave == 1)
+        InitializePlayerItems();
     }
 
     //点击
@@ -68,5 +71,20 @@ public class WaveOverManager : MonoBehaviour
         Time.timeScale = 1f;
 
         
+    }
+
+    void InitializePlayerItems()
+    {
+        if (shop1 != null && shop1.pack != null)
+        {
+            // 在玩家背包中存储初始物品
+            shop1.pack.StoreItem(2);
+        }
+
+        if (shop2 != null && shop2.pack != null)
+        {
+            // 在玩家背包中存储初始物品
+            shop2.pack.StoreItem(1);
+        }
     }
 }

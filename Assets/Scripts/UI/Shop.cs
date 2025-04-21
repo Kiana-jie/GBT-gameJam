@@ -9,8 +9,8 @@ public class Shop : Inventory
     public BackPack pack;
     public GameObject player1;
     public GameObject player2;
-    
 
+   
     // 购买按钮点击事件
     public void OnBuyButtonClicked()    
     {
@@ -42,19 +42,21 @@ public class Shop : Inventory
     //商店item抽取,显示时调用
     public void ShopUpdate()
     {
+        Debug.Log("刷新商店物品");
         {
             foreach(var slot in slotList)
             {
                 slot.gameObject.SetActive(true);
+                
 
                 //清除之前的child物体
                 foreach (Transform child in slot.transform)
                 {
+                    if (child != null)
                     GameObject.Destroy(child.gameObject);
                 }
 
                 slot.StoreItem(InventoryManager.Instance.itemList[Random.Range(0, InventoryManager.Instance.itemList.Count)]);
-                
             }
         }
     }
