@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ItemUI : MonoBehaviour
 {
     public Item Item { get; private set; }
-
+    public int itemID;
     private Image itemImage;
 
     private void Awake()

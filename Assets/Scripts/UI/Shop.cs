@@ -7,6 +7,8 @@ public class Shop : Inventory
     public PlayerStatus status;
     public Slot selectedSlot;
     public BackPack pack;
+    public GameObject player1;
+    public GameObject player2;
     
 
     // 购买按钮点击事件
@@ -34,31 +36,12 @@ public class Shop : Inventory
 
    
 
-    // 商店界面显示与隐藏
-    public void ShowShopPanel()
-    {
-        if (canvasGroup != null)
-        {
-            bool isVisible = canvasGroup.alpha == 1;
-            canvasGroup.alpha = isVisible ? 0 : 1;  // 切换透明度
-            canvasGroup.interactable = !isVisible;  // 切换交互性
-            
-        }
-    }
+    
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            ShopUpdate();
-        }
-    }
 
     //商店item抽取,显示时调用
     public void ShopUpdate()
     {
-       
-        
         {
             foreach(var slot in slotList)
             {
@@ -70,7 +53,7 @@ public class Shop : Inventory
                     GameObject.Destroy(child.gameObject);
                 }
 
-                slot.StoreItem(InventoryManager.Instance.itemList[Random.Range(0, InventoryManager.Instance.itemList.Count - 1)]);
+                slot.StoreItem(InventoryManager.Instance.itemList[Random.Range(0, InventoryManager.Instance.itemList.Count)]);
                 
             }
         }
@@ -91,7 +74,25 @@ public class Shop : Inventory
             status.money -= item.Price;  // 扣除金币
             if(item.Type == ItemType.weapon)
             {
-                pack.StoreItem(itemID);
+                // 判断是否为远程武器或近战武器
+                if (IsRangedWeapon(item)) // 远程武器
+                {
+                    // 获取 Player2 的 Shop 或 BackPack 组件来存储
+                    var player2Shop = player2.GetComponent<Shop>();
+                    if (player2Shop != null && player2Shop.pack != null)
+                    {
+                        player2Shop.pack.StoreItem(itemID);
+                    }
+                }
+                else // 近战武器
+                {
+                    // 获取 Player1 的 Shop 或 BackPack 组件来存储
+                    var player1Shop = player1.GetComponent<Shop>();
+                    if (player1Shop != null && player1Shop.pack != null)
+                    {
+                        player1Shop.pack.StoreItem(itemID);
+                    }
+                }
             }
             else if(item.Type == ItemType.prop)
             {
@@ -112,5 +113,16 @@ public class Shop : Inventory
             Debug.LogWarning("金币不足，无法购买该物品");
             return false;
         }
+    }
+
+    private bool IsRangedWeapon(Item item)
+    {
+        Weapon weapon = (Weapon)item;
+        return weapon.type == WeaponType.ranged;
+    }
+
+    private void AssignWeaponToPlayer(Item item, GameObject player)
+    {
+        
     }
 }

@@ -10,6 +10,11 @@ public class RemoteWeapon : MonoBehaviour
     private float attackTimer;
     public float attackCooldown = 1f;
     public float attackRange = 1.5f;
+
+    private void Awake()
+    {
+        detector = GameObject.Find("Player2").GetComponent<EnemyDetector>();
+    }
     public void Fire()
     {
         GameObject bullet = Instantiate(bulletPrefab,transform.position,Quaternion.identity);

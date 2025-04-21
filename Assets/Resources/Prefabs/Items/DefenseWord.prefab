@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4510604281584904861}
   - component: {fileID: 6719255680250230401}
-  - component: {fileID: 1325507291082960010}
+  - component: {fileID: -6891122116037758892}
   m_Layer: 0
   m_Name: DefenseWord
   m_TagString: Untagged
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1325507291082960010
+--- !u!114 &-6891122116037758892
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,7 +94,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4401685770792446386}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9024d23adf353ee46bca686d5d3f7f0f, type: 3}
+  m_Script: {fileID: 11500000, guid: f002aedffd34f4e42a48b91c579feeca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   itemID: 5

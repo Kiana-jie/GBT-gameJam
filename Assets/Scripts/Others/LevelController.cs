@@ -7,8 +7,7 @@ public class LevelController : MonoBehaviour
     public static LevelController Instance;
     public float waveTimer;
     private bool waveCompleted = false;
-    public Shop shop1;
-    public Shop shop2;
+
     private void Awake()
     {
         Instance = this;
@@ -58,7 +57,7 @@ public class LevelController : MonoBehaviour
             
 
             //打开商店面板 //跳转到商店界面，期间隐藏其他UI，打开商店和背包panel，点击按钮继续游戏后游戏时间回归正常，开始下一波
-
+            WaveOverManager.instance.ShowWaveOverPanel();
             //更新
             GameManager.Instance.currentWave += 1;
             Debug.Log("波次完成,进入第 " + GameManager.Instance.currentWave + "波");

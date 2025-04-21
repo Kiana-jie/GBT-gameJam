@@ -13,6 +13,10 @@ public class MeleeWeapon : MonoBehaviour
     public int damage = 10;
     private float attackTimer;
 
+    private void Awake()
+    {
+        detector = GameObject.Find("Player1").GetComponent<EnemyDetector>();
+    }
     void Update()
     {
         Aim();
