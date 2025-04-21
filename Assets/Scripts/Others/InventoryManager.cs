@@ -8,24 +8,18 @@ using System;
 public class InventoryManager : MonoBehaviour
 {
     #region 单例模式
-    private static InventoryManager _instance;
-    public static InventoryManager Instance
+    public static InventoryManager Instance;
+
+    private void Awake()
     {
-        get
-        {
-            if (_instance == null)
-            {
-                _instance = GameObject.Find("InventoryManager").GetComponent<InventoryManager>();//这里是在静态方法中，因此不能直接用this或者gameobject来获取组件
-            }
-            return _instance;
-        }
+        Instance = this;
     }
     #endregion
 
 
 
     #region 解析json
-    
+
     public List<Item> itemList = new List<Item>();
 
     private void Start()

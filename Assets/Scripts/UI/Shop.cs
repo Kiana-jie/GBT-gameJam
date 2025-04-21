@@ -20,7 +20,9 @@ public class Shop : Inventory
 
             if (item != null)
             {
-                BuyItem(item.ID);  // 调用购买物品的逻辑
+                bool success = BuyItem(item.ID);  // 调用购买物品的逻辑
+                if(success)
+                    selectedSlot.gameObject.SetActive(false);
             }
             else
             {
@@ -44,14 +46,32 @@ public class Shop : Inventory
         }
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            ShopUpdate();
+        }
+    }
+
     //商店item抽取,显示时调用
     public void ShopUpdate()
     {
-        if(canvasGroup.interactable)
+       
+        
         {
             foreach(var slot in slotList)
             {
+                slot.gameObject.SetActive(true);
+
+                //清除之前的child物体
+                foreach (Transform child in slot.transform)
+                {
+                    GameObject.Destroy(child.gameObject);
+                }
+
                 slot.StoreItem(InventoryManager.Instance.itemList[Random.Range(0, InventoryManager.Instance.itemList.Count - 1)]);
+                
             }
         }
     }

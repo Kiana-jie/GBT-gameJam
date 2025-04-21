@@ -9,16 +9,7 @@ public class Slot : MonoBehaviour
     
     //private Image slotImage;
 
-    private void Start()
-    {
-        Button button = GetComponent<Button>();
-        
-        if (button != null )
-        {
-            button.onClick.AddListener(OnBuyButtonClicked);
-        }
-        //slotImage = GetComponent<Image>();
-    }
+   
 
     public void OnBuyButtonClicked()
     {
@@ -27,15 +18,19 @@ public class Slot : MonoBehaviour
         {
             shop.selectedSlot = this;
         }
+        shop.OnBuyButtonClicked();
     }
     public void StoreItem(Item item)
     {
-        if (transform.childCount == 0)
+       
+        
         {
+            itemPrefab = item.itemPrefab;
             GameObject itemGameObject = Instantiate(itemPrefab);
             itemGameObject.transform.SetParent(transform);
             itemGameObject.transform.localPosition = Vector3.zero;
-            itemGameObject.GetComponent<ItemUI>().SetItem(item);
+            //itemGameObject.GetComponent<ItemUI>().SetItem(item);
+            Debug.Log(item.Name);
         }
     }
 
