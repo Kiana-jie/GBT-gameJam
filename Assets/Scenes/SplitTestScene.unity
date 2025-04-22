@@ -460,10 +460,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ef99463f64ea344ba529477897bbde3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentLevel: 1
+  currentExp: 0
+  neededExp: 15
+  health: 0
+  maxHealth: 0
   attackForce: 0
   defenceForce: 0
   speed: 300
   attackSpeed: 0
+  attackRate: 0
+  pickUpRange: 0
+  money: 0
 --- !u!114 &375629703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -668,6 +676,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPool:
   - {fileID: 1715032783}
+  warningPrefab: {fileID: 0}
   produceTime: 3
   spawnAreaMin: {x: -17.8, y: -9.98}
   spawnAreaMax: {x: 17.8, y: 9.9}
@@ -1269,7 +1278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01a1afad4fde42944afe8daa5bf14777, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maskSize: 0
+  maskSize: 1
 --- !u!1 &1671240361
 GameObject:
   m_ObjectHideFlags: 0
@@ -1452,8 +1461,11 @@ MonoBehaviour:
   damage: 0
   speed: 2
   attackRange: 1
-  player1: {fileID: 1938611286}
-  player2: {fileID: 375629707}
+  attackTime: 0
+  attackTimer: 0
+  isCooling: 0
+  providedExp: 1
+  moneyPrefab: {fileID: 0}
   type: 0
 --- !u!212 &1715032786
 SpriteRenderer:
@@ -1836,10 +1848,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ef99463f64ea344ba529477897bbde3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentLevel: 1
+  currentExp: 0
+  neededExp: 15
+  health: 0
+  maxHealth: 0
   attackForce: 0
   defenceForce: 0
   speed: 300
   attackSpeed: 0
+  attackRate: 0
+  pickUpRange: 0
+  money: 0
 --- !u!114 &1938611288
 MonoBehaviour:
   m_ObjectHideFlags: 0
