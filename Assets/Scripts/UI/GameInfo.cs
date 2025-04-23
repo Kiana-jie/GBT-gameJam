@@ -9,6 +9,9 @@ public class GameInfo : MonoBehaviour
     public static GameInfo Instance;
     public TextMeshProUGUI _countDown;
     public TextMeshProUGUI _waveCount;
+    
+    public Image[] energys;
+    //public Stack<Image> currentEnergy;
     private void Awake()
     {
         Instance = this;
@@ -25,4 +28,6 @@ public class GameInfo : MonoBehaviour
     {
         _waveCount.text = "Wave " + GameManager.Instance.currentWave;
     }
+
+    
 }
