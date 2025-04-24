@@ -6,6 +6,13 @@ using UnityEngine.InputSystem;
 
 public class SceneController : MonoBehaviour
 {
+    public static SceneController instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
     public GameObject wall;
     public GameObject player1Mask;
     public GameObject player2Mask;
@@ -112,6 +119,7 @@ public class SceneController : MonoBehaviour
             yield return StartCoroutine(player1Mask.GetComponent<PlayerMaskController>().DisableMask(0.1f));
         }
         wall.GetComponent<BoxCollider2D>().enabled = true;
+        
         worldNow = 2;
     }
 
@@ -127,3 +135,4 @@ public class SceneController : MonoBehaviour
     }
 
 }
+

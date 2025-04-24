@@ -91,6 +91,10 @@ public class EnemyManager : MonoBehaviour
         {
             Destroy(warning);
         }
+        foreach(var se in GameObject.FindGameObjectsWithTag("SpecialEnemy"))
+        {
+            Destroy(se);
+        }
     }
     // 可视化生成区域
     private void OnDrawGizmosSelected()

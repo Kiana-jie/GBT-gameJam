@@ -41,8 +41,9 @@ public abstract class Enemy:MonoBehaviour
 
     private void FixedUpdate()
     {
-        
-        if(Vector2.Distance(transform.position, target) >= attackRange)
+        SearchTarget();
+
+        if (Vector2.Distance(transform.position, target) >= attackRange)
         {
             Move(target);
         }

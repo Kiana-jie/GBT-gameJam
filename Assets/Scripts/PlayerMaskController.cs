@@ -10,6 +10,8 @@ public class PlayerMaskController : MonoBehaviour
     private float maskWidth;
     private Vector3 startPosition;
 
+    public float lifeTime = 10f;
+
     void Awake()
     {
         startPosition = gameObject.transform.localPosition;
@@ -34,6 +36,8 @@ public class PlayerMaskController : MonoBehaviour
         gameObject.SetActive(true);
 
         float time = 0.0f;
+
+        StartCoroutine(ShrinkMaskAndTriggerReturn(lifeTime));
 
         while (time < duration)
         {
@@ -71,4 +75,32 @@ public class PlayerMaskController : MonoBehaviour
         rate += 0.000001f; // 避免除以0
         gameObject.GetComponent<SpriteRenderer>().size = new Vector2(1 + maskWidth / rate, 1 + maskWidth / rate);
     }
+
+    private IEnumerator ShrinkMaskAndTriggerReturn(float duration)
+    {
+        float startSize = 1.0f;
+        float endSize = 0.1f;
+        float time = 0.0f;
+
+        while (time < duration)
+        {
+            float t = time / duration;
+            maskSize = Mathf.Lerp(startSize, endSize, t);
+
+            // 达到临界值，触发返回
+            if (maskSize <= 0.3f)
+            {
+                //玩家返回原位置
+                FusionController.Instance.GoBack();
+                yield break;
+            }
+
+            time += Time.deltaTime;
+            yield return null;
+        }
+
+        maskSize = endSize;
+    }
+
+   
 }

@@ -37,19 +37,10 @@ public partial class @PlayerInputControl: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Look"",
-                    ""type"": ""Value"",
-                    ""id"": ""b8d8268a-2c3f-494f-9551-ec4eb8106ce5"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""Fire"",
+                    ""name"": ""Jump"",
                     ""type"": ""Button"",
-                    ""id"": ""2c428621-5c57-4f22-ab56-013e0eda6c01"",
-                    ""expectedControlType"": ""Button"",
+                    ""id"": ""68db9f29-80d4-4be1-9760-02e200344d7c"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -113,89 +104,12 @@ public partial class @PlayerInputControl: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""c1f7a91b-d0fd-4a62-997e-7fb9b69bf235"",
-                    ""path"": ""<Gamepad>/rightStick"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Gamepad"",
-                    ""action"": ""Look"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""8c8e490b-c610-4785-884f-f04217b23ca4"",
-                    ""path"": ""<Pointer>/delta"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse;Touch"",
-                    ""action"": ""Look"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""3e5f5442-8668-4b27-a940-df99bad7e831"",
-                    ""path"": ""<Joystick>/{Hatswitch}"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Joystick"",
-                    ""action"": ""Look"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""143bb1cd-cc10-4eca-a2f0-a3664166fe91"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Gamepad"",
-                    ""action"": ""Fire"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""05f6913d-c316-48b2-a6bb-e225f14c7960"",
-                    ""path"": ""<Mouse>/leftButton"",
+                    ""id"": ""cdf1a753-c73a-46ef-b405-4b2280e32259"",
+                    ""path"": ""<Keyboard>/leftCtrl"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Fire"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""886e731e-7071-4ae4-95c0-e61739dad6fd"",
-                    ""path"": ""<Touchscreen>/primaryTouch/tap"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Touch"",
-                    ""action"": ""Fire"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""ee3d0cd2-254e-47a7-a8cb-bc94d9658c54"",
-                    ""path"": ""<Joystick>/trigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Joystick"",
-                    ""action"": ""Fire"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""8255d333-5683-4943-a58a-ccb207ff1dce"",
-                    ""path"": ""<XRController>/{PrimaryAction}"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""XR"",
-                    ""action"": ""Fire"",
+                    ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -729,6 +643,15 @@ public partial class @PlayerInputControl: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""49d0636e-f337-44d2-8239-df8751c09f57"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -786,6 +709,17 @@ public partial class @PlayerInputControl: IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""76c7961c-1974-4a52-b1b7-ff9f68623a81"",
+                    ""path"": ""<Keyboard>/rightCtrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -856,8 +790,7 @@ public partial class @PlayerInputControl: IInputActionCollection2, IDisposable
         // GamePlay1
         m_GamePlay1 = asset.FindActionMap("GamePlay1", throwIfNotFound: true);
         m_GamePlay1_Move = m_GamePlay1.FindAction("Move", throwIfNotFound: true);
-        m_GamePlay1_Look = m_GamePlay1.FindAction("Look", throwIfNotFound: true);
-        m_GamePlay1_Fire = m_GamePlay1.FindAction("Fire", throwIfNotFound: true);
+        m_GamePlay1_Jump = m_GamePlay1.FindAction("Jump", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -873,6 +806,7 @@ public partial class @PlayerInputControl: IInputActionCollection2, IDisposable
         // GamePlay2
         m_GamePlay2 = asset.FindActionMap("GamePlay2", throwIfNotFound: true);
         m_GamePlay2_Move = m_GamePlay2.FindAction("Move", throwIfNotFound: true);
+        m_GamePlay2_Jump = m_GamePlay2.FindAction("Jump", throwIfNotFound: true);
     }
 
     ~@PlayerInputControl()
@@ -942,15 +876,13 @@ public partial class @PlayerInputControl: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_GamePlay1;
     private List<IGamePlay1Actions> m_GamePlay1ActionsCallbackInterfaces = new List<IGamePlay1Actions>();
     private readonly InputAction m_GamePlay1_Move;
-    private readonly InputAction m_GamePlay1_Look;
-    private readonly InputAction m_GamePlay1_Fire;
+    private readonly InputAction m_GamePlay1_Jump;
     public struct GamePlay1Actions
     {
         private @PlayerInputControl m_Wrapper;
         public GamePlay1Actions(@PlayerInputControl wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_GamePlay1_Move;
-        public InputAction @Look => m_Wrapper.m_GamePlay1_Look;
-        public InputAction @Fire => m_Wrapper.m_GamePlay1_Fire;
+        public InputAction @Jump => m_Wrapper.m_GamePlay1_Jump;
         public InputActionMap Get() { return m_Wrapper.m_GamePlay1; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -963,12 +895,9 @@ public partial class @PlayerInputControl: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
-            @Look.started += instance.OnLook;
-            @Look.performed += instance.OnLook;
-            @Look.canceled += instance.OnLook;
-            @Fire.started += instance.OnFire;
-            @Fire.performed += instance.OnFire;
-            @Fire.canceled += instance.OnFire;
+            @Jump.started += instance.OnJump;
+            @Jump.performed += instance.OnJump;
+            @Jump.canceled += instance.OnJump;
         }
 
         private void UnregisterCallbacks(IGamePlay1Actions instance)
@@ -976,12 +905,9 @@ public partial class @PlayerInputControl: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
-            @Look.started -= instance.OnLook;
-            @Look.performed -= instance.OnLook;
-            @Look.canceled -= instance.OnLook;
-            @Fire.started -= instance.OnFire;
-            @Fire.performed -= instance.OnFire;
-            @Fire.canceled -= instance.OnFire;
+            @Jump.started -= instance.OnJump;
+            @Jump.performed -= instance.OnJump;
+            @Jump.canceled -= instance.OnJump;
         }
 
         public void RemoveCallbacks(IGamePlay1Actions instance)
@@ -1122,11 +1048,13 @@ public partial class @PlayerInputControl: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_GamePlay2;
     private List<IGamePlay2Actions> m_GamePlay2ActionsCallbackInterfaces = new List<IGamePlay2Actions>();
     private readonly InputAction m_GamePlay2_Move;
+    private readonly InputAction m_GamePlay2_Jump;
     public struct GamePlay2Actions
     {
         private @PlayerInputControl m_Wrapper;
         public GamePlay2Actions(@PlayerInputControl wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_GamePlay2_Move;
+        public InputAction @Jump => m_Wrapper.m_GamePlay2_Jump;
         public InputActionMap Get() { return m_Wrapper.m_GamePlay2; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1139,6 +1067,9 @@ public partial class @PlayerInputControl: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
+            @Jump.started += instance.OnJump;
+            @Jump.performed += instance.OnJump;
+            @Jump.canceled += instance.OnJump;
         }
 
         private void UnregisterCallbacks(IGamePlay2Actions instance)
@@ -1146,6 +1077,9 @@ public partial class @PlayerInputControl: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
+            @Jump.started -= instance.OnJump;
+            @Jump.performed -= instance.OnJump;
+            @Jump.canceled -= instance.OnJump;
         }
 
         public void RemoveCallbacks(IGamePlay2Actions instance)
@@ -1211,8 +1145,7 @@ public partial class @PlayerInputControl: IInputActionCollection2, IDisposable
     public interface IGamePlay1Actions
     {
         void OnMove(InputAction.CallbackContext context);
-        void OnLook(InputAction.CallbackContext context);
-        void OnFire(InputAction.CallbackContext context);
+        void OnJump(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
@@ -1230,5 +1163,6 @@ public partial class @PlayerInputControl: IInputActionCollection2, IDisposable
     public interface IGamePlay2Actions
     {
         void OnMove(InputAction.CallbackContext context);
+        void OnJump(InputAction.CallbackContext context);
     }
 }

@@ -24,10 +24,21 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //近战敌人
         if (collision.CompareTag("Enemy"))
         {
             // 伤害
             Enemy enemy = collision.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(damage);
+            }
+            Destroy(gameObject);
+        }
+        //特殊敌人
+        if (collision.CompareTag("SpecialEnemy"))
+        {
+            Enemy_2 enemy = collision.GetComponent<Enemy_2>();
             if (enemy != null)
             {
                 enemy.TakeDamage(damage);

@@ -17,12 +17,12 @@ public class PlayerControllerForPlayer1 : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         status = GetComponent<PlayerStatus>();
     }
-    private void OnEnable()
+    public void OnEnable()
     {
         inputControl.Enable();
     }
 
-    private void OnDisable()
+    public void OnDisable()
     {
         inputControl.Disable();
     }
@@ -35,11 +35,29 @@ public class PlayerControllerForPlayer1 : MonoBehaviour
     void Update()
     {
         InputDirection = inputControl.GamePlay1.Move.ReadValue<Vector2>();
+        HandleJump();
     }
 
     private void FixedUpdate()
     {
         HandleMove();
+        
+    }
+
+    public void HandleJump()
+    {
+        
+        if(inputControl.GamePlay1.Jump.triggered)
+        {
+            Debug.Log("跳跃到玩家2");
+            Jump();
+            FusionController.Instance.StartFusion(gameObject, GameObject.Find("Player2"));
+        }
+    }
+
+    public void Jump()
+    {
+
     }
 
     public void HandleMove()//双人：使用inputSystem
