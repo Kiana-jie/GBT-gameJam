@@ -28,7 +28,27 @@ public class WeaponHitBox : MonoBehaviour
             }
 
             
-        }  
+        }
+        if (other.CompareTag("SpecialEnemy"))
+        {
+            // 伤害
+            Enemy_2 enemy = other.GetComponent<Enemy_2>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(damage);
+            }
+
+            // 击退方向 = 敌人位置 - 武器位置
+            Vector2 knockDir = (other.transform.position - transform.position).normalized;
+            Rigidbody2D rb = other.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                rb.AddForce(knockDir * knockbackForce, ForceMode2D.Impulse);
+
+            }
+
+
+        }
     }
 
     

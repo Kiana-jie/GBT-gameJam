@@ -68,16 +68,26 @@ public class PlayerStatus : MonoBehaviour
         }
     }
 
-    //ºÒ«Æ
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("money"))
+        //ºÒ«Æ
+        if (collision.CompareTag("money"))
         {
             money++;
             Destroy(collision.gameObject);
             PlayerInfo.Instance.MoneyUpdate();
         }
+        //ºÒƒ‹¡ø∂π
+        if (collision.CompareTag("energyBean"))
+        {
+            EnergyManager.Instance.AddEnergy();
+            Destroy(collision.gameObject);
+        }
     }
+
+    
+    
 
 
 }

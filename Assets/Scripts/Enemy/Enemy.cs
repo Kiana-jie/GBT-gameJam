@@ -20,10 +20,10 @@ public abstract class Enemy:MonoBehaviour
     public bool isCooling = false;      //攻击冷却
     public int providedExp = 1;
 
-    private GameObject []players;
-    private Rigidbody2D rb;
+    protected GameObject []players;
+    protected Rigidbody2D rb;
 
-    protected Transform target;
+    protected Vector2 target;
 
     public GameObject moneyPrefab;
 
@@ -42,9 +42,9 @@ public abstract class Enemy:MonoBehaviour
     private void FixedUpdate()
     {
         
-        if(Vector2.Distance(transform.position, target.position) >= attackRange)
+        if(Vector2.Distance(transform.position, target) >= attackRange)
         {
-            Move(target.position);
+            Move(target);
         }
 
         if(rb.velocity != Vector2.zero)
@@ -78,11 +78,11 @@ public abstract class Enemy:MonoBehaviour
     public void SearchTarget()
     {
        if(players.Length == 0) { return; }
-       if(players.Length == 1) { target = players[0].transform; return; }
+       if(players.Length == 1) { target = players[0].transform.position; return; }
 
         float dis1 = Vector2.Distance(transform.position, players[0].transform.position);
         float dis2 = Vector2.Distance(transform.position, players[1].transform.position);
-        target = (dis1 <= dis2 ? players[0].transform : players[1].transform);    
+        target = (dis1 <= dis2 ? players[0].transform.position : players[1].transform.position);    
     }
 
     public void Move(Vector2 targetPos)
@@ -96,6 +96,7 @@ public abstract class Enemy:MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        
         health -= damage;
        
         Debug.Log($"{name} took {damage} damage. Remaining: {health}");
@@ -107,6 +108,7 @@ public abstract class Enemy:MonoBehaviour
 
     public void Die()
     {
+        
        GameObject.Instantiate(moneyPrefab, transform.position, Quaternion.identity);
 
         //提供经验
@@ -130,11 +132,11 @@ public abstract class Enemy:MonoBehaviour
     public void TurnAround()
     {
         //玩家在怪物右边
-        if(target.transform.position.x - transform.position.x >= 0 )
+        if(target.x - transform.position.x >= 0 )
         {
             //向右
             transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x),transform.localScale.y,transform.localScale.z);
-        } else if(target.transform.position.x - transform.position.x < 0 )
+        } else if(target.x - transform.position.x < 0 )
             //向左
         {
             transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);

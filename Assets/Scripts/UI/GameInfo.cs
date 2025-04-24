@@ -29,5 +29,23 @@ public class GameInfo : MonoBehaviour
         _waveCount.text = "Wave " + GameManager.Instance.currentWave;
     }
 
-    
+    public void UpdateEnergyUI()
+    {
+        int cur = EnergyManager.Instance.energy;
+        for (int i = 0; i < energys.Length; i++)
+        {
+            if (i < cur)
+            {
+                energys[i].color = Color.red;
+                energys[i].enabled = true;
+            }
+            else
+            {
+                energys[i].color = Color.white ;
+                energys[i].enabled = true;
+            }
+        }
+    }
+
+
 }

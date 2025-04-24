@@ -18,6 +18,7 @@ public class EnergyManager : MonoBehaviour
         if(energy < 3)
         energy++;
         //同步UI，image里加载
+        GameInfo.Instance.UpdateEnergyUI();
     }
 
     //返回跳跃等级：
@@ -28,11 +29,13 @@ public class EnergyManager : MonoBehaviour
         if(energy < 3&& energy > 0)
         {
             energy--;
+            GameInfo.Instance.UpdateEnergyUI();
             return 1;
         }
         else 
         {
             energy = 0;
+            GameInfo.Instance.UpdateEnergyUI();
             return 2;
         }
     }
