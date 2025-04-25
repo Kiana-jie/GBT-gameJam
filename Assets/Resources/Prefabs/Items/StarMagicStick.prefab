@@ -99,10 +99,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 6764293780565192351, guid: 7442c35af9aec414aac9fc5f49c01038, type: 3}
+  boomBulletPrefab: {fileID: 2002122107083919954, guid: 47fe8644a2b1a0548b99b6499b9fa789, type: 3}
   detector: {fileID: 0}
   weaponTransform: {fileID: 3694937765826926540}
   attackCooldown: 1
   attackRange: 10
+  isImproved: 0
 --- !u!114 &-1668917109544183304
 MonoBehaviour:
   m_ObjectHideFlags: 0

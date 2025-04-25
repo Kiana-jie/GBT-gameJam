@@ -12,7 +12,8 @@ public class MeleeWeapon : MonoBehaviour
     public float attackRange = 1.5f;
     public int damage = 10;
     private float attackTimer;
-
+    public bool isImproved = false;
+    public GameObject swordLightPrefab;
     private void Awake()
     {
         detector = GameObject.Find("Player1").GetComponent<EnemyDetector>();
@@ -57,7 +58,7 @@ public class MeleeWeapon : MonoBehaviour
         // 正确使用 Player 的朝向 scale.x
         
 
-        // 当前朝向（weaponTransform.right 已经指向敌人）
+        // 当前朝向（weimpaponTransform.right 已经指向敌人）
         Vector3 direction = weaponTransform.right; // right 是局部 x轴，表示朝向
 
         
@@ -78,6 +79,13 @@ public class MeleeWeapon : MonoBehaviour
             yield return null;
         }
 
+        //强化！
+        if(isImproved)
+        {
+            GameObject swordLight =  Instantiate(swordLightPrefab,transform.position,gameObject.transform.rotation);
+            swordLight.GetComponent<SwordLight>().targetDir = detector.currentTarget.position - weaponTransform.position;
+        }
+        
         // 回来
         timer = 0f;
         if (weaponCollider != null) weaponCollider.enabled = false;

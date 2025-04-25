@@ -65,6 +65,7 @@ public class PlayerMaskController : MonoBehaviour
 
         gameObject.transform.localPosition = startPosition;
         gameObject.SetActive(false);
+        Debug.Log(1);
     }
 
     // 设置遮罩大小，输入0-1之间的值

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class FusionController : MonoBehaviour
@@ -20,6 +21,8 @@ public class FusionController : MonoBehaviour
 
     private void Awake()
     {
+        player1 = GameObject.Find("Player1");
+        player2 = GameObject.Find("Player2");
         Instance = this;
     }
 
@@ -29,7 +32,8 @@ public class FusionController : MonoBehaviour
         fusionLeader = leader;
         fusionFollower = follower;
         GoNearBy();
-
+        AttributeImproved(leader,follower);
+        WeaponImproved(leader, follower);
         // 禁用follower的输入控制
         if (follower.TryGetComponent<PlayerControllerForPlayer1>(out var control1))
         {
@@ -39,6 +43,79 @@ public class FusionController : MonoBehaviour
         else if(follower.TryGetComponent<PlayerControllerForPlayer2>(out var control2))
         {
             control2.OnDisable();
+        }
+    }
+
+    //武器强化
+    /*
+     * 获取leader 的weaponHolder下的所有武器
+     * 替换为强化武器（打开基础武器的强化标记)
+     * 禁用follower 的weaponHolder
+     *
+     */
+    private void WeaponImproved(GameObject leader,GameObject follower)
+    {
+        follower.transform.Find("WeaponHolder").gameObject.SetActive(false);
+        if (leader.name == "Player1")
+        {
+            MeleeWeapon[] weapons = leader.transform.Find("WeaponHolder").GetComponentsInChildren<MeleeWeapon>();
+            foreach (var weapon in weapons) {
+                weapon.isImproved = true;
+            }
+        }
+        else if (leader.name == "Player2")
+        {
+            RemoteWeapon[] weapons = leader.transform.Find("WeaponHolder").GetComponentsInChildren<RemoteWeapon>();
+            foreach (var weapon in weapons)
+            {
+                weapon.isImproved = true;
+            }
+        }
+    }
+
+    //取消强化（武器）
+    private void WeaponDeclared(GameObject leader, GameObject follower)
+    {
+        follower.transform.Find("WeaponHolder").gameObject.SetActive(true);
+        if (leader.name == "Player1")
+        {
+            MeleeWeapon[] weapons = leader.transform.Find("WeaponHolder").GetComponentsInChildren<MeleeWeapon>();
+            foreach (var weapon in weapons)
+            {
+                weapon.isImproved = false;
+            }
+        }
+        else if (leader.name == "Player2")
+        {
+            RemoteWeapon[] weapons = leader.transform.Find("WeaponHolder").GetComponentsInChildren<RemoteWeapon>();
+            foreach (var weapon in weapons)
+            {
+                weapon.isImproved = false;
+            }
+        }
+    }
+
+    //属性强化
+    private void AttributeImproved(GameObject leader, GameObject follower)
+    {
+        PlayerStatus status1 = leader.GetComponent<PlayerStatus>();
+        PlayerStatus status2 = follower.GetComponent<PlayerStatus>();
+        if(status1 && status2)
+        {
+            status1.attackForce += status2.attackForce;
+            status1.defenceForce += status2.defenceForce;
+        }
+    }
+
+    //取消强化
+    private void AttributeDeclared(GameObject leader, GameObject follower)
+    {
+        PlayerStatus status1 = leader.GetComponent<PlayerStatus>();
+        PlayerStatus status2 = follower.GetComponent<PlayerStatus>();
+        if (status1 && status2)
+        {
+            status1.attackForce -= status2.attackForce;
+            status1.defenceForce -= status2.defenceForce;
         }
     }
 
@@ -55,7 +132,8 @@ public class FusionController : MonoBehaviour
         {
             control2.OnEnable();
         }
-        
+        AttributeDeclared(fusionLeader,fusionFollower);
+        WeaponDeclared(fusionLeader, fusionFollower);
         SceneController.instance.ShiftToCentre();
         fusionLeader = null;
         fusionFollower = null;

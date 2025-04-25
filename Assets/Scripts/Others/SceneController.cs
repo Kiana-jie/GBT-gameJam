@@ -98,6 +98,7 @@ public class SceneController : MonoBehaviour
         }
         wall.GetComponent<BoxCollider2D>().enabled = true;
         worldNow = 1;
+        Debug.Log(2);
     }
 
     // 协程队列，切换到世界2
@@ -119,7 +120,7 @@ public class SceneController : MonoBehaviour
             yield return StartCoroutine(player1Mask.GetComponent<PlayerMaskController>().DisableMask(0.1f));
         }
         wall.GetComponent<BoxCollider2D>().enabled = true;
-        
+        Debug.Log(2);
         worldNow = 2;
     }
 
@@ -131,6 +132,7 @@ public class SceneController : MonoBehaviour
         StartCoroutine(player1Mask.GetComponent<PlayerMaskController>().DisableMask(0.1f));
         StartCoroutine(player2Mask.GetComponent<PlayerMaskController>().DisableMask(0.1f));
         wall.GetComponent<BoxCollider2D>().enabled = true;
+        Debug.Log (2);
         worldNow = 0;
     }
 

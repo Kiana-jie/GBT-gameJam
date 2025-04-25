@@ -5,20 +5,30 @@ using UnityEngine;
 public class RemoteWeapon : MonoBehaviour
 {
     public GameObject bulletPrefab;
+    public GameObject boomBulletPrefab;
     public EnemyDetector detector;
     public Transform weaponTransform;
     private float attackTimer;
     public float attackCooldown = 1f;
     public float attackRange = 1.5f;
-
+    public bool isImproved = false;
     private void Awake()
     {
         detector = GameObject.Find("Player2").GetComponent<EnemyDetector>();
     }
     public void Fire()
     {
-        GameObject bullet = Instantiate(bulletPrefab,transform.position,Quaternion.identity);
-        bullet.GetComponent<Bullet>().targetDir = detector.currentTarget.position - weaponTransform.position;
+        if (!isImproved)
+        {
+            GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+            bullet.GetComponent<Bullet>().targetDir = detector.currentTarget.position - weaponTransform.position;
+        }
+        else
+        {
+            GameObject boomBullet = Instantiate(boomBulletPrefab,transform.position, Quaternion.identity);
+            boomBullet.GetComponent<BoomBullet>().targetDir = detector.currentTarget.position - weaponTransform.position;
+        }
+        
     }
 
     public void Aim()

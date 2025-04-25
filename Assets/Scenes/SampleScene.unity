@@ -5050,8 +5050,8 @@ MonoBehaviour:
   neededExp: 15
   health: 0
   maxHealth: 10
-  attackForce: 0
-  defenceForce: 0
+  attackForce: 1
+  defenceForce: 1
   speed: 300
   attackSpeed: 0
   attackRate: 0
@@ -9878,8 +9878,8 @@ MonoBehaviour:
   neededExp: 15
   health: 0
   maxHealth: 10
-  attackForce: 0
-  defenceForce: 0
+  attackForce: 1
+  defenceForce: 1
   speed: 300
   attackSpeed: 0
   attackRate: 0
