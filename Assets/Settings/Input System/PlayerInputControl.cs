@@ -713,7 +713,7 @@ public partial class @PlayerInputControl: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""76c7961c-1974-4a52-b1b7-ff9f68623a81"",
-                    ""path"": ""<Keyboard>/rightCtrl"",
+                    ""path"": ""<Keyboard>/l"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",

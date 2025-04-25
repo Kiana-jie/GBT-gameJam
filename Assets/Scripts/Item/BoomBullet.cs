@@ -10,7 +10,7 @@ public class BoomBullet : MonoBehaviour
     public Vector3 targetDir;
     public int damage;
     public float boomRadius;
-    public GameObject boomPrefab;//可不可以用粒子效果实现?
+    //public GameObject boomPrefab;//可不可以用粒子效果实现?
     // Start is called before the first frame update
     void Start()
     {
@@ -31,13 +31,39 @@ public class BoomBullet : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             Debug.Log("Boom!");
-            Destroy(gameObject);
+            Boom();
+            
         }
         //特殊敌人
         if (collision.CompareTag("SpecialEnemy"))
         {
             Debug.Log("Boom!");
-            Destroy(gameObject);
+            Boom();
         }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, boomRadius);
+    }
+
+    public void Boom()
+    {
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, boomRadius);
+        foreach (var collider in colliders)
+        {
+            if (collider.CompareTag("Enemy"))
+            {
+                Enemy_1 enemy = collider.GetComponent<Enemy_1>();
+                enemy.TakeDamage(damage);
+            }
+            else if (collider.CompareTag("SpecialEnemy"))
+            {
+                Enemy_2 enemy = collider.GetComponent<Enemy_2>();
+                enemy.TakeDamage(damage);
+            }
+        }
+        Destroy(gameObject);
     }
 }

@@ -78,7 +78,7 @@ public class EnemyManager : MonoBehaviour
         }
         Destroy(warning);
 
-        GameObject enemy = Instantiate(enemyPool[Random.Range(0, enemyPool.Length)], spawnPos, Quaternion.identity);
+        GameObject enemy = Instantiate(enemyPool[Random.Range(0, enemyPool.Length)], spawnPos, Quaternion.identity,gameObject.transform);
     }
 
     public void DestroyAllEnemies()

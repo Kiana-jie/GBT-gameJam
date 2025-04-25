@@ -83,7 +83,10 @@ public class MeleeWeapon : MonoBehaviour
         if(isImproved)
         {
             GameObject swordLight =  Instantiate(swordLightPrefab,transform.position,gameObject.transform.rotation);
-            swordLight.GetComponent<SwordLight>().targetDir = detector.currentTarget.position - weaponTransform.position;
+            if (detector.currentTarget != null)
+            {
+                swordLight.GetComponent<SwordLight>().targetDir = detector.currentTarget.position - weaponTransform.position;
+            }
         }
         
         // ªÿ¿¥
