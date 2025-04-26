@@ -20,7 +20,9 @@ public class PlayerStatus : MonoBehaviour
     [Header("拾取")]
     public float pickUpRange;
     public int money;
-    
+    [Header("所处世界")]
+    [Range(1, 2)]
+    public int currentWorld;
 
     
     private void Awake()

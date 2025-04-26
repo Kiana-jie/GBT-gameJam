@@ -36,6 +36,8 @@ public class SceneController : MonoBehaviour
             StartCoroutine(ShiftToCentre());
         if (Input.GetKeyDown(KeyCode.Alpha3))
             StartCoroutine(ShiftToWorld2());
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+            StartCoroutine(GameManager.Instance.WorldAttack());
     }
 
     // 协程，将折叠线移动到任意位置

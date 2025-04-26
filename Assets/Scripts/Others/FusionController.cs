@@ -19,6 +19,10 @@ public class FusionController : MonoBehaviour
 
     private Vector2 originPos;
 
+
+    private int originalWorldId = 0;
+
+
     private void Awake()
     {
         player1 = GameObject.Find("Player1");
@@ -44,6 +48,12 @@ public class FusionController : MonoBehaviour
         {
             control2.OnDisable();
         }
+        //修改玩家currentWorld:被跳跃的一方修改为跳跃的一方
+        PlayerStatus status_leader = leader.GetComponent<PlayerStatus>();
+        PlayerStatus status_follower = follower.GetComponent<PlayerStatus>();
+        originalWorldId = status_follower.currentWorld;
+        status_follower.currentWorld = status_leader.currentWorld;
+
     }
 
     //武器强化
@@ -135,6 +145,10 @@ public class FusionController : MonoBehaviour
         AttributeDeclared(fusionLeader,fusionFollower);
         WeaponDeclared(fusionLeader, fusionFollower);
         SceneController.instance.ShiftToCentre();
+       
+
+        PlayerStatus status_follower = fusionFollower.GetComponent<PlayerStatus>();
+         status_follower.currentWorld = originalWorldId;
         fusionLeader = null;
         fusionFollower = null;
     }

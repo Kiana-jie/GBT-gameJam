@@ -50,15 +50,12 @@ public class PlayerControllerForPlayer1 : MonoBehaviour
         if(inputControl.GamePlay1.Jump.triggered)
         {
             Debug.Log("跳跃到玩家2");
-            Jump();
             FusionController.Instance.StartFusion(gameObject, GameObject.Find("Player2"));
+            
+            
         }
     }
 
-    public void Jump()
-    {
-
-    }
 
     public void HandleMove()//双人：使用inputSystem
     {

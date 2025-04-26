@@ -30,7 +30,7 @@ public class EnemyManager : MonoBehaviour
 
     IEnumerator Produce()
     {
-        enemyPerWave = Random.Range(1, 5);
+        enemyPerWave = Random.Range(1, 6);
         for(int i = 0; i < enemyPerWave; i++)
         {
             Vector2 spawnPos = new Vector2(
