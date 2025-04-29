@@ -18,6 +18,7 @@ public class FusionController : MonoBehaviour
     private GameObject fusionFollower;
 
     private Vector2 originPos;
+    private Vector2 originPos_2;
 
 
     private int originalWorldId = 0;
@@ -30,12 +31,28 @@ public class FusionController : MonoBehaviour
         Instance = this;
     }
 
+    void FixedUpdate()
+    {
+
+        if (isFusion && fusionLeader != null && fusionFollower != null)
+        {
+
+            if (!hasJumped)
+            {
+                GetIntoFollowerWorld();
+            }
+            //// 简单跟随方式：强制对齐位置
+            Follow();
+        }
+    }
+
     public void StartFusion(GameObject leader, GameObject follower)
     {
         isFusion = true;
         fusionLeader = leader;
         fusionFollower = follower;
         GoNearBy();
+        //GetIntoFollowerWorld();
         AttributeImproved(leader,follower);
         WeaponImproved(leader, follower);
         // 禁用follower的输入控制
@@ -53,7 +70,7 @@ public class FusionController : MonoBehaviour
         PlayerStatus status_follower = follower.GetComponent<PlayerStatus>();
         originalWorldId = status_follower.currentWorld;
         status_follower.currentWorld = status_leader.currentWorld;
-
+        
     }
 
     //武器强化
@@ -132,7 +149,7 @@ public class FusionController : MonoBehaviour
     public void StopFusion()
     {
         isFusion = false;
-        hasJumped = false;
+        
         if (fusionFollower.TryGetComponent<PlayerControllerForPlayer1>(out var control1))
         {
             control1.OnEnable();
@@ -144,33 +161,21 @@ public class FusionController : MonoBehaviour
         }
         AttributeDeclared(fusionLeader,fusionFollower);
         WeaponDeclared(fusionLeader, fusionFollower);
-        SceneController.instance.ShiftToCentre();
-       
+        ReturnToLeaderWorld();
+        GoBack();
 
         PlayerStatus status_follower = fusionFollower.GetComponent<PlayerStatus>();
          status_follower.currentWorld = originalWorldId;
+        
         fusionLeader = null;
         fusionFollower = null;
     }
 
-    void FixedUpdate()
-    {
-        
-        if (isFusion && fusionLeader != null && fusionFollower != null)
-        {
-
-            if (!hasJumped)
-            {
-                GetIntoFollowerWorld();
-            }
-            // 简单跟随方式：强制对齐位置
-            Follow();
-        }
-    }
+    
 
     public void GetIntoFollowerWorld()
     {
-        ReturnToPosition();
+        
         if (fusionLeader.name == "Player1")
         {
             Debug.Log("主导者是player1，进入Player2的遮罩");
@@ -187,8 +192,9 @@ public class FusionController : MonoBehaviour
 
     public void ReturnToLeaderWorld()
     {
-        fusionLeader.transform.position = originPos;
+        
         StartCoroutine(SceneController.instance.ShiftToCentre());
+        hasJumped = false;
 
 
     }
@@ -196,14 +202,19 @@ public class FusionController : MonoBehaviour
     //前往对方世界的移动函数，待实现具体跳跃特效
     public void GoNearBy()
     {
+        //保存现地址
         originPos = fusionLeader.transform.position;
+        originPos_2 = fusionFollower.transform.position;
+        //传送
+        fusionLeader.transform.position = fusionFollower.transform.position;
     }
 
 
     //返回自己世界的移动函数，待实现具体返回特效
-    public void ReturnToPosition()
+    public void GoBack()
     {
-        fusionLeader.transform.position = fusionFollower.transform.position;
+        fusionLeader.transform.position = originPos;
+        fusionFollower.transform.position = originPos_2;
     }
 
     public void Follow()
@@ -214,14 +225,6 @@ public class FusionController : MonoBehaviour
             fusionLeader.transform.position + offset,
             10f * Time.fixedDeltaTime
         );
-    }
-
-
-    public void GoBack()
-    {
-        ReturnToLeaderWorld();
-        StopFusion();
-
     }
 }
 

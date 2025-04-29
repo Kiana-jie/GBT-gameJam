@@ -4359,7 +4359,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maskSize: 1
-  lifeTime: 10
+  lifeTime: 4
 --- !u!212 &913324081
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7698,7 +7698,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maskSize: 1
-  lifeTime: 10
+  lifeTime: 4
 --- !u!212 &1562172335
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -92,7 +92,7 @@ public class PlayerMaskController : MonoBehaviour
             if (maskSize <= 0.3f)
             {
                 //玩家返回原位置
-                FusionController.Instance.GoBack();
+                FusionController.Instance.StopFusion();
                 yield break;
             }
 
