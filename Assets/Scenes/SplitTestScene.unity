@@ -472,7 +472,7 @@ MonoBehaviour:
   attackRate: 0
   pickUpRange: 0
   money: 0
-  currentWorld: 0
+  currentWorld: 1
 --- !u!114 &375629703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -613,6 +613,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1894278937}
+  - {fileID: 1726095126}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &571065711
@@ -768,7 +769,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -4
+  m_SortingOrder: -5
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.5799937, g: 0.39195576, b: 0.86998576, a: 1}
   m_FlipX: 0
@@ -1004,7 +1005,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -3
+  m_SortingOrder: -4
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.63529414, g: 0.6293112, b: 0.2509804, a: 1}
   m_FlipX: 0
@@ -1561,11 +1562,11 @@ Transform:
   m_GameObject: {fileID: 1726095125}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.64154816, y: 0.053340912, z: 9.0935}
+  m_LocalPosition: {x: -5.361548, y: -1.5966591, z: 9.0935}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 375629707}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1814584446
 GameObject:
@@ -1639,7 +1640,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -2
+  m_SortingOrder: -3
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.63529414, g: 0.6293112, b: 0.2509804, a: 1}
   m_FlipX: 0
@@ -1679,7 +1680,7 @@ Transform:
   m_GameObject: {fileID: 1894278936}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.41, y: 0.14, z: 0}
+  m_LocalPosition: {x: 5, y: 0, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1785,7 +1786,7 @@ SpriteMask:
   m_FrontSortingLayer: 0
   m_BackSortingLayer: 0
   m_FrontSortingOrder: -1
-  m_BackSortingOrder: -4
+  m_BackSortingOrder: -2
   m_IsCustomRangeActive: 1
   m_SpriteSortPoint: 0
 --- !u!114 &1894278941
@@ -1863,7 +1864,7 @@ MonoBehaviour:
   attackRate: 0
   pickUpRange: 0
   money: 0
-  currentWorld: 0
+  currentWorld: 1
 --- !u!114 &1938611288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2047,7 +2048,6 @@ SceneRoots:
   - {fileID: 267602546}
   - {fileID: 1938611286}
   - {fileID: 375629707}
-  - {fileID: 1726095126}
   - {fileID: 280483269}
   - {fileID: 2019037744}
   - {fileID: 257061538}
