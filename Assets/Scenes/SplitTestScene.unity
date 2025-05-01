@@ -399,7 +399,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -3
+  m_SortingOrder: -4
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -472,6 +472,7 @@ MonoBehaviour:
   attackRate: 0
   pickUpRange: 0
   money: 0
+  currentWorld: 0
 --- !u!114 &375629703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1279,6 +1280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maskSize: 1
+  lifeTime: 10
 --- !u!1 &1671240361
 GameObject:
   m_ObjectHideFlags: 0
@@ -1799,6 +1801,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maskSize: 1
+  lifeTime: 10
 --- !u!1 &1938611285
 GameObject:
   m_ObjectHideFlags: 0
@@ -1860,6 +1863,7 @@ MonoBehaviour:
   attackRate: 0
   pickUpRange: 0
   money: 0
+  currentWorld: 0
 --- !u!114 &1938611288
 MonoBehaviour:
   m_ObjectHideFlags: 0
