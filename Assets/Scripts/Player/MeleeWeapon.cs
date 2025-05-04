@@ -58,7 +58,7 @@ public class MeleeWeapon : MonoBehaviour
         // 正确使用 Player 的朝向 scale.x
         
 
-        // 当前朝向（weimpaponTransform.right 已经指向敌人）
+        // 当前朝向（weaponTransform.right 已经指向敌人）
         Vector3 direction = weaponTransform.right; // right 是局部 x轴，表示朝向
 
         
@@ -91,6 +91,7 @@ public class MeleeWeapon : MonoBehaviour
         
         // 回来
         timer = 0f;
+        // 禁用碰撞器
         if (weaponCollider != null) weaponCollider.enabled = false;
         while (timer < stabDuration)
         {
@@ -101,7 +102,7 @@ public class MeleeWeapon : MonoBehaviour
 
         weaponTransform.localPosition = originalPos;
 
-        // 禁用碰撞器
+        
         
     }
 
