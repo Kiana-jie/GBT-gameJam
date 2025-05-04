@@ -73,7 +73,7 @@ public class Shop : Inventory
         if (status.money >= item.Price)
         {
             // 购买物品
-            status.money -= item.Price;  // 扣除金币
+            //status.money -= item.Price;  // 扣除金币
             if(item.Type == ItemType.weapon)
             {
                 // 判断是否为远程武器或近战武器
@@ -83,7 +83,12 @@ public class Shop : Inventory
                     var player2Shop = player2.GetComponent<Shop>();
                     if (player2Shop != null && player2Shop.pack != null)
                     {
-                        player2Shop.pack.StoreItem(itemID);
+                        //判断是否有空背包格
+                        if (player2Shop.pack.StoreItem(itemID))
+                        {
+                            status.money -= item.Price;
+                        }
+                        else return false;
                     }
                 }
                 else // 近战武器
@@ -92,12 +97,17 @@ public class Shop : Inventory
                     var player1Shop = player1.GetComponent<Shop>();
                     if (player1Shop != null && player1Shop.pack != null)
                     {
-                        player1Shop.pack.StoreItem(itemID);
+                        if (player1Shop.pack.StoreItem(itemID))
+                        {
+                            status.money -= item.Price;
+                        }
+                        else return false;
                     }
                 }
             }
             else if(item.Type == ItemType.prop)
             {
+                status.money -= item.Price;
                 Prop prop = (Prop)item;
                 status.maxHealth += prop.Health;
                 status.attackForce += prop.AttackForce;

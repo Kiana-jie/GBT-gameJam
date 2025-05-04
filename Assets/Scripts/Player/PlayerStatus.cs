@@ -44,7 +44,7 @@ public class PlayerStatus : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        health -= damage;
+        health -= (damage - defenceForce);
         PlayerInfo.Instance.HPUpdate();
         if (health <= 0)
         {

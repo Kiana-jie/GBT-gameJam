@@ -10,6 +10,14 @@ public class Bullet : MonoBehaviour
     public Vector3 targetDir;
     public int damage;
     // Start is called before the first frame update
+
+    private PlayerStatus player2;
+
+    private void Awake()
+    {
+        player2 = GameObject.Find("Player2").GetComponent<PlayerStatus>();
+    }
+
     void Start()
     {
          if(gameObject != null)
@@ -31,7 +39,7 @@ public class Bullet : MonoBehaviour
             Enemy enemy = collision.GetComponent<Enemy>();
             if (enemy != null)
             {
-                enemy.TakeDamage(damage);
+                enemy.TakeDamage(damage + player2.attackForce);
             }
             Destroy(gameObject);
         }
@@ -41,7 +49,7 @@ public class Bullet : MonoBehaviour
             Enemy_2 enemy = collision.GetComponent<Enemy_2>();
             if (enemy != null)
             {
-                enemy.TakeDamage(damage);
+                enemy.TakeDamage(damage + player2.attackForce);
             }
             Destroy(gameObject);
         }
