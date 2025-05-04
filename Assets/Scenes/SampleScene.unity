@@ -2052,6 +2052,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1590082314}
     m_Modifications:
+    - target: {fileID: 1191814786595608244, guid: 5d3a4aac9a9c39e479522673b2d1e8d4, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7124769545856341146, guid: 5d3a4aac9a9c39e479522673b2d1e8d4, type: 3}
       propertyPath: m_Name
       value: Stick
@@ -2070,19 +2074,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7780740550342975093, guid: 5d3a4aac9a9c39e479522673b2d1e8d4, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 7780740550342975093, guid: 5d3a4aac9a9c39e479522673b2d1e8d4, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7780740550342975093, guid: 5d3a4aac9a9c39e479522673b2d1e8d4, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7780740550342975093, guid: 5d3a4aac9a9c39e479522673b2d1e8d4, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 7780740550342975093, guid: 5d3a4aac9a9c39e479522673b2d1e8d4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2094,7 +2098,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7780740550342975093, guid: 5d3a4aac9a9c39e479522673b2d1e8d4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: -90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3596,6 +3600,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1014272187}
     m_Modifications:
+    - target: {fileID: 3244030664139897662, guid: 2976bf99d7467484cbf5b7367c6b5176, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 611150959, guid: 855d37cf70c055a40a8e6d3296f32da6, type: 3}
+    - target: {fileID: 3244030664139897662, guid: 2976bf99d7467484cbf5b7367c6b5176, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3694937765826926540, guid: 2976bf99d7467484cbf5b7367c6b5176, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.8200002

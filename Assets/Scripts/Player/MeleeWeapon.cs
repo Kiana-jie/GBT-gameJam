@@ -15,10 +15,12 @@ public class MeleeWeapon : MonoBehaviour
     public bool isImproved = false;
     public GameObject swordLightPrefab;
     private Transform player_tr;
+    private SpriteRenderer sr;
     private void Awake()
     {
         detector = GameObject.Find("Player1").GetComponent<EnemyDetector>();
         player_tr = GameObject.Find("Player1").GetComponent<Transform>();
+        sr = GetComponent<SpriteRenderer>();
     }
     
     
@@ -32,9 +34,19 @@ public class MeleeWeapon : MonoBehaviour
     {
         if (detector.currentTarget != null)
         {
+
             
             Vector2 direction = detector.currentTarget.position - weaponTransform.position;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+            float faceDir = player_tr.localScale.x;
+
+            // 如果朝左，需要flip
+            if (faceDir < 0)
+            {
+                sr.flipX = true;
+            }
+            else sr.flipX = false;
             weaponTransform.rotation = Quaternion.Euler(0, 0, angle);
             
         }
@@ -64,7 +76,8 @@ public class MeleeWeapon : MonoBehaviour
         float faceDir = player_tr.localScale.x;
 
         // 当前朝向（weaponTransform.right 已经指向敌人）
-        Vector3 direction = new Vector3(faceDir * weaponTransform.right.x,weaponTransform.right.y,weaponTransform.right.z); // right 是局部 x轴，表示朝向
+        Vector3 direction = new Vector3(faceDir * weaponTransform.right.x,  weaponTransform.right.y,  weaponTransform.right.z); // right 是局部 x轴，表示朝向
+
 
         
 

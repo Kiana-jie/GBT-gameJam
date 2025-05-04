@@ -56,7 +56,7 @@ public class WeaponManager : MonoBehaviour
             weaponObj.transform.rotation = Quaternion.Euler(0, 0, weaponAngle);
 
             // 确保武器的局部缩放为1
-            weaponObj.transform.localScale = Vector3.one;
+            //weaponObj.transform.localScale = Vector3.one;
 
             // 累计计数
             count++;
