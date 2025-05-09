@@ -43,8 +43,8 @@ public class GameManager : MonoBehaviour
 
         // 保存原始材质
         originalFrontMat1 = front_world1.material;
-        originalBackMat1 = back_world1.material;
         originalFrontMat2 = front_world2.material;
+        originalBackMat1 = back_world1.material;
         originalBackMat2 = back_world2.material;
 
         
@@ -63,11 +63,11 @@ public class GameManager : MonoBehaviour
         if (worldAttackTimer >= worldAttackTime)
         {
             worldAttackTimer = 0;
-            bool condition = CheckAttackCondition();
-            if (condition)
-            {
+            //bool condition = CheckAttackCondition();
+            //if (condition)
+            //{
+            //}
                 StartCoroutine(WorldAttack());
-            }
         }
 
     }
@@ -141,8 +141,8 @@ public class GameManager : MonoBehaviour
         float timer = 0f;
         while (timer < warningTime)
         {
-            float alpha = Mathf.PingPong(timer * flashSpeed, 1f);
-            warningMat.color = new Color(warningColor.r, warningColor.g, warningColor.b, alpha);
+            float color_offset = Mathf.PingPong(timer * flashSpeed, 1f);
+            warningMat.color = new Color(warningColor.r + color_offset, warningColor.g + color_offset, warningColor.b + color_offset);
 
             timer += Time.deltaTime;
             yield return null;

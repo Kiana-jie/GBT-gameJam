@@ -10,12 +10,14 @@ public class PlayerControllerForPlayer1 : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 InputDirection;
     private PlayerStatus status;
+    private Animator animator;
     // Start is called before the first frame update
     private void Awake()
     {
         inputControl = new PlayerInputControl();
         rb = GetComponent<Rigidbody2D>();
         status = GetComponent<PlayerStatus>();
+        animator = GetComponent<Animator>();
     }
     public void OnEnable()
     {
@@ -59,13 +61,14 @@ public class PlayerControllerForPlayer1 : MonoBehaviour
 
     public void HandleMove()//双人：使用inputSystem
     {
+        if (InputDirection.x != 0 || InputDirection.y != 0 ) animator.SetBool("isWalking", true);
+        else animator.SetBool("isWalking", false);
+
         rb.velocity = new Vector2(InputDirection.x * status.speed * Time.deltaTime, InputDirection.y * status.speed * Time.deltaTime);
 
-        //翻转
-        int faceDir = (int)transform.localScale.x;
-        if (InputDirection.x > 0) faceDir = 1;
-        if (InputDirection.x < 0) faceDir = -1;
+        float originalScale = Mathf.Abs(transform.localScale.x); // 获取原始缩放大小(绝对值)
+        int faceDir = InputDirection.x > 0 ? 1 : (InputDirection.x < 0 ? -1 : (int)Mathf.Sign(transform.localScale.x));
 
-        gameObject.transform.localScale = new Vector3(faceDir, 1, 1);
+        gameObject.transform.localScale = new Vector3(originalScale * faceDir, transform.localScale.y, transform.localScale.z);
     }
 }

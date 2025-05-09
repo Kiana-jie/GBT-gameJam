@@ -73,7 +73,7 @@ public class MeleeWeapon : MonoBehaviour
         Vector3 originalPos = weaponTransform.localPosition;
 
         // 正确使用 Player 的朝向 scale.x
-        float faceDir = player_tr.localScale.x;
+        int faceDir = player_tr.localScale.x > 0 ? 1 : -1;
 
         // 当前朝向（weaponTransform.right 已经指向敌人）
         Vector3 direction = new Vector3(faceDir * weaponTransform.right.x,  weaponTransform.right.y,  weaponTransform.right.z); // right 是局部 x轴，表示朝向
