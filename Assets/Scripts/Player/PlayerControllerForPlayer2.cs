@@ -48,13 +48,17 @@ public class PlayerControllerForPlayer2 : MonoBehaviour
 
     public void HandleJump()
     {
-        bool status = inputControl.GamePlay2.Jump.triggered;
-        if (status)
+        if( inputControl.GamePlay2.Jump.triggered)
         {
-            Debug.Log("跳跃到玩家1");
-            FusionController.Instance.StartFusion(gameObject, GameObject.Find("Player1"));
-
+            if (EnergyManager.Instance.energy > 0)
+            {
+                Debug.Log("跳跃到玩家1");
+                FusionController.Instance.StartFusion(gameObject, GameObject.Find("Player1"));
+                EnergyManager.Instance.ConsumeEnergy();
+            }
+            else return;
         }
+        
     }
 
     public void HandleMove()//双人：使用inputSystem

@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenuManager : MonoBehaviour
 {
-    public GameObject pauseMenuUI; // 拖入你的暂停菜单 Panel
+    public GameObject pauseMenuUI; 
     private bool isPaused = false;
 
     void Update()
@@ -35,6 +35,7 @@ public class PauseMenuManager : MonoBehaviour
     {
         pauseMenuUI.SetActive(true); // 显示暂停菜单
         Time.timeScale = 0f; // 暂停游戏时间
+        AttributeUI.Instance.AttributeUIUpdate();
         isPaused = true;
         
     }

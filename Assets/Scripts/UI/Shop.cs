@@ -52,11 +52,16 @@ public class Shop : Inventory
                 //清除之前的child物体
                 foreach (Transform child in slot.transform)
                 {
-                    if (child != null)
-                    GameObject.Destroy(child.gameObject);
+                    if (child.name != "price" && child.name != "Image")
+                    {
+
+                        GameObject.Destroy(child.gameObject);
+                    }
                 }
 
                 slot.StoreItem(InventoryManager.Instance.itemList[Random.Range(0, InventoryManager.Instance.itemList.Count)]);
+                
+
             }
         }
     }

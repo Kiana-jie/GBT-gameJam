@@ -219,7 +219,7 @@ public class FusionController : MonoBehaviour
 
     public void Follow()
     {
-        Vector3 offset = new Vector3(1.5f, 0, 0); // 保持一定间距
+        Vector3 offset = new Vector3(2f, 0, 0); // 保持一定间距
         fusionFollower.transform.position = Vector3.Lerp(
             fusionFollower.transform.position,
             fusionLeader.transform.position + offset,
