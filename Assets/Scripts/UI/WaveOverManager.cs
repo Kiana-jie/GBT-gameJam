@@ -29,6 +29,7 @@ public class WaveOverManager : MonoBehaviour
         shopPanel.SetActive(true);
         PausePanel.SetActive(true);
         AttributeUI.Instance.AttributeUIUpdate();
+        ShopMoneyUI.instance.ShopMoneyUIUpdate();
         shop1.ShopUpdate();
         shop2.ShopUpdate();
 

@@ -56,7 +56,7 @@ public class Slot : MonoBehaviour
     }
 
     public int GetItemID() { return transform.GetChild(0).GetComponent<ItemUI>().Item.ID; }
-    public int GetShopItemID() { return transform.GetChild(0).GetComponent<ItemUI>().itemID; }
+    public int GetShopItemID() { return transform.GetChild(2).GetComponent<ItemUI>().itemID; }
 
 
 

@@ -24,7 +24,11 @@ public class Shop : Inventory
             {
                 bool success = BuyItem(item.ID);  // 调用购买物品的逻辑
                 if(success)
+                {
                     selectedSlot.gameObject.SetActive(false);
+                    AttributeUI.Instance.AttributeUIUpdate();
+                }
+                    
             }
             else
             {
@@ -122,6 +126,7 @@ public class Shop : Inventory
             Debug.Log($"成功购买 {item.Name}，花费 {item.Price} 金币");
             //更新UI
             PlayerInfo.Instance.MoneyUpdate();
+            ShopMoneyUI.instance.ShopMoneyUIUpdate();
             return true;
         }
         else
