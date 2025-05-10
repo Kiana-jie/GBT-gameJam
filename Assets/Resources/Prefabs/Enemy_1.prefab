@@ -102,8 +102,8 @@ MonoBehaviour:
   health: 30
   damage: 1
   speed: 2
-  attackRange: 1
-  attackTime: 2
+  attackRange: 2
+  attackTime: 0.5
   attackTimer: 0
   isCooling: 0
   providedExp: 1

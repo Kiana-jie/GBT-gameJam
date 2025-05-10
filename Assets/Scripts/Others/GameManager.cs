@@ -63,11 +63,11 @@ public class GameManager : MonoBehaviour
         if (worldAttackTimer >= worldAttackTime)
         {
             worldAttackTimer = 0;
-            //bool condition = CheckAttackCondition();
-            //if (condition)
-            //{
-            //}
+            bool condition = CheckAttackCondition();
+            if (condition)
+            {
                 StartCoroutine(WorldAttack());
+            }
         }
 
     }

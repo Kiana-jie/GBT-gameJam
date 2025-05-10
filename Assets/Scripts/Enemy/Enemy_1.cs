@@ -10,8 +10,10 @@ public class Enemy_1 : Enemy
      {
         if (isCooling) { return; }
         PlayerStatus status = target.GetComponent<PlayerStatus>();
+        
         if (status != null)
         {
+            Debug.Log("attacked!");
             status.TakeDamage(damage);
             isCooling = true;
             attackTimer = attackTime;
@@ -22,7 +24,7 @@ public class Enemy_1 : Enemy
     {
         
     }
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
         
         if(other.CompareTag("Player"))
