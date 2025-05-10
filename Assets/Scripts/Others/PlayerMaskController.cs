@@ -10,7 +10,7 @@ public class PlayerMaskController : MonoBehaviour
     private float maskWidth;
     private Vector3 startPosition;
 
-    public float lifeTime = 10f;
+    public float lifeTime ;
 
     void Awake()
     {
@@ -80,7 +80,7 @@ public class PlayerMaskController : MonoBehaviour
     private IEnumerator ShrinkMaskAndTriggerReturn(float duration)
     {
         float startSize = 1.0f;
-        float endSize = 0.1f;
+        float endSize = 0.4f;
         float time = 0.0f;
 
         while (time < duration)
@@ -89,8 +89,9 @@ public class PlayerMaskController : MonoBehaviour
             maskSize = Mathf.Lerp(startSize, endSize, t);
 
             // 达到临界值，触发返回
-            if (maskSize <= 0.3f)
+            if (maskSize <= 0.5f)
             {
+                
                 //玩家返回原位置
                 FusionController.Instance.StopFusion();
                 yield break;

@@ -28,6 +28,8 @@ public class WaveOverManager : MonoBehaviour
         // 显示商店和背包
         shopPanel.SetActive(true);
         PausePanel.SetActive(true);
+        AttributeUI.Instance.AttributeUIUpdate();
+        ShopMoneyUI.instance.ShopMoneyUIUpdate();
         shop1.ShopUpdate();
         shop2.ShopUpdate();
 
