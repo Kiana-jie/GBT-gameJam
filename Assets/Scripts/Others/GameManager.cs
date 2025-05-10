@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     private Material originalFrontMat2;
     private Material originalBackMat2;
 
+    
     private Shader warningShader;
     private void Awake()
     {
@@ -59,6 +60,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         worldAttackTimer += Time.deltaTime;
         if (worldAttackTimer >= worldAttackTime)
         {
@@ -70,6 +72,13 @@ public class GameManager : MonoBehaviour
             }
         }
 
+    }
+
+
+    public void GameOver()
+    {
+        Time.timeScale = 0f;
+        GameOverManager.Instance.Show();
     }
 
     /**/

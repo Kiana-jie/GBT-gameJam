@@ -54,6 +54,7 @@ public class PlayerStatus : MonoBehaviour
     public void Die()
     {
         Destroy(gameObject);
+        GameManager.Instance.GameOver();
     }
     //数值结算：角色自身属性 + 加成 + 武器属性
   
