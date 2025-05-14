@@ -11626,6 +11626,84 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1884576532}
   m_CullTransparentMesh: 1
+--- !u!1 &1886279669
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1886279670}
+  - component: {fileID: 1886279671}
+  m_Layer: 0
+  m_Name: Audio Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1886279670
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1886279669}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2144160218}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1886279671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1886279669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee46f3f4877850045b2875992b316bd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clipInfoList:
+  - Name: 1_left
+    Clip: {fileID: 8300000, guid: 9cf25eecf1c904748aabff44b4ebbb15, type: 3}
+    Loop: 1
+  - Name: 2_left
+    Clip: {fileID: 8300000, guid: 81e30f7084f65b8478ed7d963a77b325, type: 3}
+    Loop: 1
+  - Name: 3_left
+    Clip: {fileID: 8300000, guid: fa9158f99df63434c994c80b369cb200, type: 3}
+    Loop: 1
+  - Name: 4_left
+    Clip: {fileID: 8300000, guid: cb30ef02d79285043874846a6afe3015, type: 3}
+    Loop: 1
+  - Name: 5_left
+    Clip: {fileID: 8300000, guid: 799fda9fe00e58e4189f1b72631d099e, type: 3}
+    Loop: 1
+  - Name: 1_right
+    Clip: {fileID: 8300000, guid: f7c16f3c31c5dba45ba95ee65d8499b8, type: 3}
+    Loop: 1
+  - Name: 2_right
+    Clip: {fileID: 8300000, guid: 288318a2bf486534087aa915987ef27e, type: 3}
+    Loop: 1
+  - Name: 3_right
+    Clip: {fileID: 8300000, guid: 99d30d15efddad44881e5fa9c066aa6d, type: 3}
+    Loop: 1
+  - Name: 4_right
+    Clip: {fileID: 8300000, guid: ce4f10ae7f2b755438ab6d478914734c, type: 3}
+    Loop: 1
+  - Name: 5_right
+    Clip: {fileID: 8300000, guid: 2e2df5edea783d44b85bdd9465eecf2e, type: 3}
+    Loop: 1
+  - Name: intro
+    Clip: {fileID: 8300000, guid: 84fc2192fd64a6b4dbc998775dc757ac, type: 3}
+    Loop: 0
 --- !u!1 &1944764373
 GameObject:
   m_ObjectHideFlags: 0
@@ -12758,6 +12836,7 @@ Transform:
   - {fileID: 457094083}
   - {fileID: 1368670855}
   - {fileID: 380744359}
+  - {fileID: 1886279670}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2034596942788667611

@@ -72,7 +72,7 @@ public class WaveOverManager : MonoBehaviour
         continueButton.SetActive(true);
         Time.timeScale = 1f;
 
-        
+        GameManager.Instance.AudioPlay();
     }
 
     void InitializePlayerItems()

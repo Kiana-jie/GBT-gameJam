@@ -75,6 +75,8 @@ public class SceneController : MonoBehaviour
 
         wall.transform.position = targetPosition;
         wall.transform.rotation = targetRotation;
+
+        
     }
 
     // 没救了，世界1和世界2之间不能直接切，会穿帮
@@ -101,6 +103,8 @@ public class SceneController : MonoBehaviour
         wall.GetComponent<BoxCollider2D>().enabled = true;
         worldNow = 1;
         Debug.Log(2);
+
+        //World1音量调大
     }
 
     // 协程队列，切换到世界2
@@ -124,6 +128,8 @@ public class SceneController : MonoBehaviour
         wall.GetComponent<BoxCollider2D>().enabled = true;
         Debug.Log(2);
         worldNow = 2;
+
+        //World2音量调大
     }
 
     // 协程队列，切换到中间
@@ -136,6 +142,8 @@ public class SceneController : MonoBehaviour
         wall.GetComponent<BoxCollider2D>().enabled = true;
         Debug.Log (2);
         worldNow = 0;
+
+        //两边bgm音量持平
     }
 
 }

@@ -64,8 +64,11 @@ public class LevelController : MonoBehaviour
 
             //打开商店面板 //跳转到商店界面，期间隐藏其他UI，打开商店和背包panel，点击按钮继续游戏后游戏时间回归正常，开始下一波
             WaveOverManager.instance.ShowWaveOverPanel();
+
             //更新
+            GameManager.Instance.AudioStop();
             GameManager.Instance.currentWave += 1;
+
             Debug.Log("波次完成,进入第 " + GameManager.Instance.currentWave + "波");
             GameInfo.Instance.WaveCountUpdate();
             WaveTimeInitiate();

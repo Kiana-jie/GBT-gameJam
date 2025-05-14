@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        AudioPlay();
     }
 
     // Update is called once per frame
@@ -71,12 +71,13 @@ public class GameManager : MonoBehaviour
                 StartCoroutine(WorldAttack());
             }
         }
-
+        
     }
 
 
     public void GameOver()
     {
+        AudioStop();
         Time.timeScale = 0f;
         GameOverManager.Instance.Show();
     }
@@ -179,5 +180,15 @@ public class GameManager : MonoBehaviour
         return LevelController.Instance.waveTimer >= 10f && EnergyManager.Instance.energy > 0; 
     }
 
+    public void AudioPlay()
+    {
+        AudioManager.Instance.Play(currentWave + "_left", World2);
+        AudioManager.Instance.Play(currentWave + "_right", World1);
+    }
 
+    public void AudioStop()
+    {
+        AudioManager.Instance.Stop(currentWave + "_left", World2);
+        AudioManager.Instance.Stop(currentWave + "_right", World1);
+    }
 }
