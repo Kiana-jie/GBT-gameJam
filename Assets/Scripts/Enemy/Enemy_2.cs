@@ -82,7 +82,7 @@ public class Enemy_2 : Enemy
         base.Die();
     }
 
-    public override void HandleAttack() { }
+    
 
     public override void Attack(GameObject target) { }
 

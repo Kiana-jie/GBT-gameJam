@@ -92,7 +92,7 @@ public abstract class Enemy:MonoBehaviour
         TurnAround();
     }
 
-    public abstract void HandleAttack();
+    
     
 
     public void TakeDamage(int damage)

@@ -10,7 +10,7 @@ public class EnemyManager : MonoBehaviour
     public float produceTime = 3f;      // 生成间隔
     private float timer = 0f;
     private int enemyPerWave;
-
+    private bool con = true;
     public Vector2 spawnAreaMin;        // 生成区域左下角
     public Vector2 spawnAreaMax;        // 生成区域右上角
 
@@ -21,10 +21,14 @@ public class EnemyManager : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if (timer > produceTime)
+        if (timer > produceTime && con == true)
         {
             timer = 0;
             StartCoroutine(Produce());
+            if(GameManager.Instance.currentWave == 5)
+            {
+                con = false;
+            }
         }
     }
 
@@ -93,7 +97,7 @@ public class EnemyManager : MonoBehaviour
         if (GameManager.Instance.currentWave < 5)
         {
 
-            GameObject enemy = Instantiate(enemyPool[Random.Range(0, enemyPool.Length)], spawnPos, Quaternion.identity, gameObject.transform);
+            GameObject enemy = Instantiate(enemyPool[Random.Range(0, enemyPool.Length-1)], spawnPos, Quaternion.identity, gameObject.transform);
         }
         else
         {

@@ -1382,7 +1382,7 @@ MonoBehaviour:
   enemyPool:
   - {fileID: 4354915982229530035, guid: 27f1de743f4b6a74e8e45fa629fe853a, type: 3}
   - {fileID: 4354915982229530035, guid: defdb7e2c4c20e24d852d16792b64fc5, type: 3}
-  - {fileID: 4354915982229530035, guid: defdb7e2c4c20e24d852d16792b64fc5, type: 3}
+  - {fileID: 6156687490644285549, guid: bb43d3ffae81b0542ab27f1159787623, type: 3}
   warningPrefab: {fileID: 7085134463347737301, guid: 4a0d48d7ce26a984f94e831d0e5a1aad, type: 3}
   produceTime: 3
   spawnAreaMin: {x: -17.8, y: -9.98}

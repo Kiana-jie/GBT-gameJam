@@ -95,7 +95,7 @@ public class PlayerStatus : MonoBehaviour
     IEnumerator AttackedToRed()
     {
         SpriteRenderer sr = gameObject.GetComponent<SpriteRenderer>();
-        Color origin = sr.color;
+        Color origin = Color.white;
         Color AttackedCol = Color.red;
 
         sr.color = AttackedCol;

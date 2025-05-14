@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -95,7 +95,91 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: "boss\u52A8\u56FE\uFF08\u56DB\u5E27\u671D\u53F3\uFF09PNG_0"
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 154
+        width: 1470
+        height: 1396
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61bae1565a1d8ef43992a54914053dcc
+      internalID: -2045190339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "boss\u52A8\u56FE\uFF08\u56DB\u5E27\u671D\u53F3\uFF09PNG_1"
+      rect:
+        serializedVersion: 2
+        x: 1644
+        y: 106
+        width: 1518
+        height: 1492
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4e26b4cd311c6143b1f77196b14e1b7
+      internalID: -185575562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "boss\u52A8\u56FE\uFF08\u56DB\u5E27\u671D\u53F3\uFF09PNG_2"
+      rect:
+        serializedVersion: 2
+        x: 3266
+        y: 145
+        width: 1250
+        height: 1383
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d125e07ab936cdf488500c647dfb0823
+      internalID: 1199121949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "boss\u52A8\u56FE\uFF08\u56DB\u5E27\u671D\u53F3\uFF09PNG_3"
+      rect:
+        serializedVersion: 2
+        x: 4556
+        y: 106
+        width: 1038
+        height: 1461
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40b7197b153e2cf4fbe275f366b8d681
+      internalID: -490468896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -106,7 +190,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      "boss\u52A8\u56FE\uFF08\u56DB\u5E27\u671D\u53F3\uFF09PNG_0": -2045190339
+      "boss\u52A8\u56FE\uFF08\u56DB\u5E27\u671D\u53F3\uFF09PNG_1": -185575562
+      "boss\u52A8\u56FE\uFF08\u56DB\u5E27\u671D\u53F3\uFF09PNG_2": 1199121949
+      "boss\u52A8\u56FE\uFF08\u56DB\u5E27\u671D\u53F3\uFF09PNG_3": -490468896
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

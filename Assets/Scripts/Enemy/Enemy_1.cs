@@ -20,11 +20,8 @@ public class Enemy_1 : Enemy
         }
     }
 
-    public override void HandleAttack()
-    {
-        
-    }
-    private void OnTriggerStay2D(Collider2D other)
+    
+    public void OnTriggerStay2D(Collider2D other)
     {
         
         if(other.CompareTag("Player"))
