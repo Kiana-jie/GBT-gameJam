@@ -36,7 +36,7 @@ public class AudioManager : MonoBehaviour
     {
         instance = this;
         transform.parent = null;
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
 
         clipInfoDic = new Dictionary<string, ClipInfo>();
         foreach (var clipInfo in clipInfoList)

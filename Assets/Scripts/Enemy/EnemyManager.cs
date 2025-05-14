@@ -124,4 +124,19 @@ public class EnemyManager : MonoBehaviour
         Vector3 size = (spawnAreaMax - spawnAreaMin);
         Gizmos.DrawWireCube(center, size);
     }
+
+    public void EnemiesLevelUp()
+    {
+        foreach(GameObject enemy in enemyPool)
+        {
+            Enemy status = enemy.GetComponent<Enemy>();
+            if (status != null)
+            {
+                status.health += 10;
+                status.damage += 1;
+                status.speed += 0.2f;
+            }
+            
+        }
+    }
 }
