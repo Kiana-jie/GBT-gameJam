@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -76,7 +77,7 @@ public class SceneController : MonoBehaviour
         wall.transform.position = targetPosition;
         wall.transform.rotation = targetRotation;
 
-        
+
     }
 
     // 没救了，世界1和世界2之间不能直接切，会穿帮
@@ -104,7 +105,13 @@ public class SceneController : MonoBehaviour
         worldNow = 1;
         Debug.Log(2);
 
-        //World1音量调大
+        //World1音量调大,Wprld2音量调小
+        /*
+            查找对应audioclip的gameobject
+            设置音量
+         */
+        AudioSource source = FindClip(GameManager.Instance.currentWave + "_left");
+        source.volume = 0.3f;
     }
 
     // 协程队列，切换到世界2
@@ -130,6 +137,8 @@ public class SceneController : MonoBehaviour
         worldNow = 2;
 
         //World2音量调大
+        AudioSource source = FindClip(GameManager.Instance.currentWave + "_right");
+        source.volume = 0.3f;
     }
 
     // 协程队列，切换到中间
@@ -140,11 +149,30 @@ public class SceneController : MonoBehaviour
         StartCoroutine(player1Mask.GetComponent<PlayerMaskController>().DisableMask(0.1f));
         StartCoroutine(player2Mask.GetComponent<PlayerMaskController>().DisableMask(0.1f));
         wall.GetComponent<BoxCollider2D>().enabled = true;
-        Debug.Log (2);
+        Debug.Log(2);
         worldNow = 0;
 
         //两边bgm音量持平
+        AudioSource source1 = FindClip(GameManager.Instance.currentWave + "_left");
+        AudioSource source2 = FindClip(GameManager.Instance.currentWave + "_right");
+        source1.volume = 1f;
+        source2.volume = 1f;
     }
 
+
+    public AudioSource FindClip(string clipName)
+    {
+        GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("bgm");
+        foreach (GameObject gameObject in gameObjects)
+        {
+            AudioSource audioSource = gameObject.GetComponent<AudioSource>();
+            if (audioSource != null && audioSource.clip != null && audioSource.clip.name == clipName)
+            {
+                return audioSource;
+            }
+        }
+        Debug.Log("Fail to find!");
+        return null;
+    }
 }
 

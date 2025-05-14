@@ -60,7 +60,11 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (currentWave > 5)
+        {
+            GameWin();
+        }
+
         worldAttackTimer += Time.deltaTime;
         if (worldAttackTimer >= worldAttackTime)
         {
@@ -79,9 +83,16 @@ public class GameManager : MonoBehaviour
     {
         AudioStop();
         Time.timeScale = 0f;
-        GameOverManager.Instance.Show();
+        GameOverManager.Instance.ShowFailPanel();
     }
 
+    public void GameWin()
+    {
+        AudioStop();
+        Time.timeScale = 0f;
+        GameOverManager.Instance.ShowWinPanel();
+
+    }
     /**/
     public IEnumerator WorldAttack()
     {
@@ -184,6 +195,7 @@ public class GameManager : MonoBehaviour
     {
         AudioManager.Instance.Play(currentWave + "_left", World2);
         AudioManager.Instance.Play(currentWave + "_right", World1);
+        Debug.Log(currentWave + "_left");
     }
 
     public void AudioStop()

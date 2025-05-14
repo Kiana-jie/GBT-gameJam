@@ -64,12 +64,14 @@ public class MeleeWeapon : MonoBehaviour
             {
                 StartCoroutine(StabRoutine());
                 attackTimer = attackCooldown;
+                
             }
         }
     }
 
     IEnumerator StabRoutine()
     {
+        AudioManager.Instance.Play("attack", gameObject);
         Vector3 originalPos = weaponTransform.localPosition;
 
         // 正确使用 Player 的朝向 scale.x
@@ -119,9 +121,9 @@ public class MeleeWeapon : MonoBehaviour
         }
 
         weaponTransform.localPosition = originalPos;
+        AudioManager.Instance.Stop("attack", gameObject);
 
-        
-        
+
     }
 
 

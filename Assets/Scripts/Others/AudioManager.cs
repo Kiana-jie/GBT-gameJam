@@ -63,7 +63,9 @@ public class AudioManager : MonoBehaviour
         if(curInfo == null || !clipInfoDic[name].Loop)
         {
             curInfo = new SourceInfo();
-            curInfo.Source = new GameObject().AddComponent<AudioSource>();
+            GameObject GO = new GameObject();
+            GO.tag = "bgm";
+            curInfo.Source = GO.AddComponent<AudioSource>();
             curInfo.Source.transform.parent = transform;
             sourceInfoList.Add(curInfo);
             curInfo.SourceName = name;

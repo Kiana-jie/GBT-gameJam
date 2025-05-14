@@ -21,7 +21,9 @@ public class Bullet : MonoBehaviour
     void Start()
     {
          if(gameObject != null)
-        Destroy(gameObject,lifeTime);
+         {
+            Destroy(gameObject,lifeTime);
+         }
     }
 
     // Update is called once per frame
@@ -53,5 +55,6 @@ public class Bullet : MonoBehaviour
             }
             Destroy(gameObject);
         }
+
     }
 }

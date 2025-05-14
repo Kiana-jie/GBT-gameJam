@@ -30,17 +30,30 @@ public class EnemyManager : MonoBehaviour
 
     IEnumerator Produce()
     {
-        enemyPerWave = Random.Range(1, 6);
-        for(int i = 0; i < enemyPerWave; i++)
+        if(GameManager.Instance.currentWave < 5)
+        {
+            enemyPerWave = Random.Range(1, 6);
+            for (int i = 0; i < enemyPerWave; i++)
+            {
+                Vector2 spawnPos = new Vector2(
+                Random.Range(spawnAreaMin.x, spawnAreaMax.x),
+                Random.Range(spawnAreaMin.y, spawnAreaMax.y)
+            );
+                StartCoroutine(Warning(spawnPos));
+
+            }
+        }
+
+        else
         {
             Vector2 spawnPos = new Vector2(
-            Random.Range(spawnAreaMin.x, spawnAreaMax.x),
-            Random.Range(spawnAreaMin.y, spawnAreaMax.y)
-        );
+                Random.Range(spawnAreaMin.x, spawnAreaMax.x),
+                Random.Range(spawnAreaMin.y, spawnAreaMax.y)
+                );
             StartCoroutine(Warning(spawnPos));
-            
         }
-        yield break;
+
+            yield break;
     }
     IEnumerator Warning(Vector2 spawnPos)
     {
@@ -77,8 +90,15 @@ public class EnemyManager : MonoBehaviour
             sr.color = new Color(1f, 1f, 1f, 0);
         }
         Destroy(warning);
+        if (GameManager.Instance.currentWave < 5)
+        {
 
-        GameObject enemy = Instantiate(enemyPool[Random.Range(0, enemyPool.Length)], spawnPos, Quaternion.identity,gameObject.transform);
+            GameObject enemy = Instantiate(enemyPool[Random.Range(0, enemyPool.Length)], spawnPos, Quaternion.identity, gameObject.transform);
+        }
+        else
+        {
+            GameObject boss = Instantiate(enemyPool[2], spawnPos, Quaternion.identity, gameObject.transform);
+        }
     }
 
     public void DestroyAllEnemies()

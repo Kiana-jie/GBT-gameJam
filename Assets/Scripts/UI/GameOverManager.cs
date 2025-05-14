@@ -5,11 +5,13 @@ using UnityEngine.SceneManagement;
 public class GameOverManager : MonoBehaviour
 {
     public static GameOverManager Instance;
-    public GameObject GameOverMenu;
+    public GameObject GameFailMenu;
+    public GameObject GameWinMenu;
     private void Awake()
     {
         Instance = this;
-        GameOverMenu.SetActive(false);
+        GameFailMenu.SetActive(false);
+        GameWinMenu.SetActive(false);
     }
     
     
@@ -17,14 +19,21 @@ public class GameOverManager : MonoBehaviour
     public void RestartGame()
     {
         SceneManager.LoadScene("SampleScene");
-        GameOverMenu.SetActive(false );
+        GameFailMenu.SetActive(false );
+        GameWinMenu.SetActive(false );
         Time.timeScale = 1f;
     }
 
-    public void Show()
+    public void ShowFailPanel()
     {
         Time.timeScale = 0;
-        GameOverMenu.SetActive(true);
+        GameFailMenu.SetActive(true);
+    }
+
+    public void ShowWinPanel()
+    {
+        Time.timeScale = 0;
+        GameWinMenu.SetActive(true);
     }
 
     public void BackToMainMenu()

@@ -62,6 +62,7 @@ public class RemoteWeapon : MonoBehaviour
             if (distance <= attackRange)
             {
                 Fire();
+                AudioManager.Instance.Play("shoot", gameObject);
                 attackTimer = attackCooldown;
             }
         }

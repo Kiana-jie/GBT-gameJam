@@ -45,7 +45,10 @@ public class PlayerStatus : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= (damage - defenceForce);
+        StartCoroutine(AttackedToRed());
+        AudioManager.Instance.Play("attacked", gameObject);
         PlayerInfo.Instance.HPUpdate();
+
         if (health <= 0)
         {
             Die();
@@ -89,7 +92,18 @@ public class PlayerStatus : MonoBehaviour
         }
     }
 
-    
+    IEnumerator AttackedToRed()
+    {
+        SpriteRenderer sr = gameObject.GetComponent<SpriteRenderer>();
+        Color origin = sr.color;
+        Color AttackedCol = Color.red;
+
+        sr.color = AttackedCol;
+        yield return new WaitForSeconds(0.15f);
+
+        sr.color = origin;
+
+    }
     
 
 

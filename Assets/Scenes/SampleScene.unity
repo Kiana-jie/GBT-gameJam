@@ -1382,6 +1382,7 @@ MonoBehaviour:
   enemyPool:
   - {fileID: 4354915982229530035, guid: 27f1de743f4b6a74e8e45fa629fe853a, type: 3}
   - {fileID: 4354915982229530035, guid: defdb7e2c4c20e24d852d16792b64fc5, type: 3}
+  - {fileID: 4354915982229530035, guid: defdb7e2c4c20e24d852d16792b64fc5, type: 3}
   warningPrefab: {fileID: 7085134463347737301, guid: 4a0d48d7ce26a984f94e831d0e5a1aad, type: 3}
   produceTime: 3
   spawnAreaMin: {x: -17.8, y: -9.98}
@@ -11675,34 +11676,43 @@ MonoBehaviour:
     Clip: {fileID: 8300000, guid: 9cf25eecf1c904748aabff44b4ebbb15, type: 3}
     Loop: 1
   - Name: 2_left
-    Clip: {fileID: 8300000, guid: 81e30f7084f65b8478ed7d963a77b325, type: 3}
+    Clip: {fileID: 8300000, guid: 8f21f48eaa0ce3c49bddae49e9a3f2f3, type: 3}
     Loop: 1
   - Name: 3_left
-    Clip: {fileID: 8300000, guid: fa9158f99df63434c994c80b369cb200, type: 3}
+    Clip: {fileID: 8300000, guid: 4599c4597f3a5114daaf772b3f97acfa, type: 3}
     Loop: 1
   - Name: 4_left
-    Clip: {fileID: 8300000, guid: cb30ef02d79285043874846a6afe3015, type: 3}
+    Clip: {fileID: 8300000, guid: 9a9e21b3005832842b764121902df77e, type: 3}
     Loop: 1
   - Name: 5_left
-    Clip: {fileID: 8300000, guid: 799fda9fe00e58e4189f1b72631d099e, type: 3}
+    Clip: {fileID: 8300000, guid: 43b281a74056b044a952bf8e636ff1b8, type: 3}
     Loop: 1
   - Name: 1_right
     Clip: {fileID: 8300000, guid: f7c16f3c31c5dba45ba95ee65d8499b8, type: 3}
     Loop: 1
   - Name: 2_right
-    Clip: {fileID: 8300000, guid: 288318a2bf486534087aa915987ef27e, type: 3}
+    Clip: {fileID: 8300000, guid: 8294cc468f8b0e94da331ba78738c32d, type: 3}
     Loop: 1
   - Name: 3_right
     Clip: {fileID: 8300000, guid: 99d30d15efddad44881e5fa9c066aa6d, type: 3}
     Loop: 1
   - Name: 4_right
-    Clip: {fileID: 8300000, guid: ce4f10ae7f2b755438ab6d478914734c, type: 3}
+    Clip: {fileID: 8300000, guid: bb107a0d63b872c41811992e76b2554e, type: 3}
     Loop: 1
   - Name: 5_right
-    Clip: {fileID: 8300000, guid: 2e2df5edea783d44b85bdd9465eecf2e, type: 3}
+    Clip: {fileID: 8300000, guid: ce60aa7a3c2e5e241adb913a45626295, type: 3}
     Loop: 1
   - Name: intro
     Clip: {fileID: 8300000, guid: 84fc2192fd64a6b4dbc998775dc757ac, type: 3}
+    Loop: 0
+  - Name: attacked
+    Clip: {fileID: 8300000, guid: 0c9f5c3ea0b67394cbfca9fd1fca7c2b, type: 3}
+    Loop: 0
+  - Name: attack
+    Clip: {fileID: 8300000, guid: c518440ff84db9447a5890368f62c45b, type: 3}
+    Loop: 0
+  - Name: shoot
+    Clip: {fileID: 8300000, guid: f0d3a130e05e24349b44f606a992ffab, type: 3}
     Loop: 0
 --- !u!1 &1944764373
 GameObject:
