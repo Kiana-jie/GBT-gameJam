@@ -9,10 +9,6 @@ public class EnemyFire : MonoBehaviour
     public float cooldown;
     public int fireNum;
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()

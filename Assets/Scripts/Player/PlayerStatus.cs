@@ -44,7 +44,7 @@ public class PlayerStatus : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        health -= (damage - defenceForce);
+        health -= (damage - defenceForce > 0 ? damage - defenceForce : 0);
         StartCoroutine(AttackedToRed());
         AudioManager.Instance.Play("attacked", gameObject);
         PlayerInfo.Instance.HPUpdate();
