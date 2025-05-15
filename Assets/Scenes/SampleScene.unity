@@ -800,8 +800,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -25, y: 0}
-  m_SizeDelta: {x: 40, y: 12}
+  m_AnchoredPosition: {x: -50.581417, y: 0}
+  m_SizeDelta: {x: 91.1628, y: 12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &199414497
 MonoBehaviour:
@@ -8130,8 +8130,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 25, y: 0}
-  m_SizeDelta: {x: 40, y: 12}
+  m_AnchoredPosition: {x: 50.369034, y: 0}
+  m_SizeDelta: {x: 90.7381, y: 12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1329184641
 MonoBehaviour:
@@ -8392,7 +8392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38c8df567a322bd40a9e7648fe7ba250, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentWave: 1
+  currentWave: 4
   worldAttackTime: 5
   warningTime: 3
   warningColor: {r: 1, g: 0, b: 0, a: 1}
@@ -12809,11 +12809,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hpAmount_player1: {fileID: 1829420457}
   _expAmount_player1: {fileID: 1720633912}
+  _Hp_player1: {fileID: 199414497}
   _money_player1: {fileID: 728273317}
   _level_player1: {fileID: 447435351}
   _status_player1: {fileID: 0}
   _hpAmount_player2: {fileID: 527877685}
   _expAmount_player2: {fileID: 942513654}
+  _Hp_player2: {fileID: 1329184641}
   _money_player2: {fileID: 933882022}
   _level_player2: {fileID: 1679523137}
   _status_player2: {fileID: 0}

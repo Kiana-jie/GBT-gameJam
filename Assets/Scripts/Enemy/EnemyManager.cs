@@ -143,4 +143,9 @@ public class EnemyManager : MonoBehaviour
             
         
     }
+
+    public void EnemyProduceTimeDecrease()
+    {
+        produceTime -= 0.5f;
+    }
 }
