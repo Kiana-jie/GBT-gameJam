@@ -109,18 +109,26 @@ public abstract class Enemy:MonoBehaviour
 
     public void Die()
     {
-        
-       GameObject.Instantiate(moneyPrefab, transform.position, Quaternion.identity);
-
-        //提供经验
-        foreach(var player in players)
+        Debug.Log(gameObject.name);
+        if (gameObject.name == "Boss(Clone)")
         {
-            PlayerStatus status = player.GetComponent<PlayerStatus>();
-            status.currentExp += providedExp;
-            status.LevelUp();
-            PlayerInfo.Instance.ExpUpdate();
+            GameManager.Instance.GameWin();
+            Destroy(gameObject);
         }
-       Destroy(gameObject);
+        else
+        {
+            GameObject.Instantiate(moneyPrefab, transform.position, Quaternion.identity);
+
+            //提供经验
+            foreach(var player in players)
+            {
+                PlayerStatus status = player.GetComponent<PlayerStatus>();
+                status.currentExp += providedExp;
+                status.LevelUp();
+                PlayerInfo.Instance.ExpUpdate();
+            }
+           Destroy(gameObject);
+        }
     }
     public abstract void Attack(GameObject target);
     

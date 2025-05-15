@@ -12615,7 +12615,7 @@ MonoBehaviour:
   neededExp: 15
   health: 0
   maxHealth: 100
-  attackForce: 1
+  attackForce: 1000
   defenceForce: 0
   speed: 300
   attackSpeed: 0

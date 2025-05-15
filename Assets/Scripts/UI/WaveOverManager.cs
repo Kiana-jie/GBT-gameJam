@@ -73,7 +73,7 @@ public class WaveOverManager : MonoBehaviour
         Time.timeScale = 1f;
 
         GameManager.Instance.AudioPlay();
-        EnemyManager.instance.EnemiesLevelUp();
+        
     }
 
     void InitializePlayerItems()

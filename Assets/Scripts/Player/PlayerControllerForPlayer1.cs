@@ -51,7 +51,7 @@ public class PlayerControllerForPlayer1 : MonoBehaviour
         
         if(inputControl.GamePlay1.Jump.triggered)
         {
-            if (EnergyManager.Instance.energy > 0)
+            if (EnergyManager.Instance.energy > 0 && GameObject.Find("Player2").GetComponent<PlayerStatus>().currentWorld == 1)
             {
                 Debug.Log("ÌøÔ¾µ½Íæ¼Ò2");
                 FusionController.Instance.StartFusion(gameObject, GameObject.Find("Player2"));

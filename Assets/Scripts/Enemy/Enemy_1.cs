@@ -18,7 +18,7 @@ public class Enemy_1 : Enemy
             isCooling = true;
             attackTimer = attackTime;
         }
-    }
+     }
 
     
     public void OnTriggerStay2D(Collider2D other)

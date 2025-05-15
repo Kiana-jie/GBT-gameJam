@@ -98,6 +98,7 @@ public class EnemyManager : MonoBehaviour
         {
 
             GameObject enemy = Instantiate(enemyPool[Random.Range(0, enemyPool.Length-1)], spawnPos, Quaternion.identity, gameObject.transform);
+            EnemyLevelUp(enemy,GameManager.Instance.currentWave);
         }
         else
         {
@@ -129,18 +130,17 @@ public class EnemyManager : MonoBehaviour
         Gizmos.DrawWireCube(center, size);
     }
 
-    public void EnemiesLevelUp()
+    public void EnemyLevelUp(GameObject enemy,int wave)
     {
-        foreach(GameObject enemy in enemyPool)
-        {
+            
             Enemy status = enemy.GetComponent<Enemy>();
             if (status != null)
             {
-                status.health += 10;
-                status.damage += 1;
-                status.speed += 0.2f;
+                status.health += 10 * (wave - 1);
+                status.damage += 1 * (wave - 1);
+                status.speed += 0.2f * (wave - 1);
             }
             
-        }
+        
     }
 }
