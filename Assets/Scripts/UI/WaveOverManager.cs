@@ -62,7 +62,7 @@ public class WaveOverManager : MonoBehaviour
         {
             weaponMgr2.LoadWeaponsFromSlots();
         }
-
+        EnemyManager.instance.EnemyProduceTimeDecrease();
         shopPanel.SetActive(false);
         PausePanel.SetActive(false);
 
@@ -73,6 +73,7 @@ public class WaveOverManager : MonoBehaviour
         Time.timeScale = 1f;
 
         GameManager.Instance.AudioPlay();
+
         
     }
 
